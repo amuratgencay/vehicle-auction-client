@@ -1,0 +1,14 @@
+footer {
+    & li {
+        margin: 1em 0;
+
+        & a {
+            color: $color-amec-mid-to-dark-gray-one;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+    }
+
+}

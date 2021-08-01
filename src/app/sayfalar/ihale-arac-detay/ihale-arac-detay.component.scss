@@ -1,0 +1,26 @@
+:host ::ng-deep ngx-gallery-image .ngx-gallery-icon-content {
+  padding: 0.6rem !important;
+  font-size: 20px;
+}
+
+:host ::ng-deep .ngx-gallery-icon-content {
+  padding: 0.5rem !important;
+  font-size: 15px;
+}
+:host ::ng-deep .ngx-gallery-arrow {
+  background-color: #343434;
+  color: #fff;
+  opacity: 0.45;
+}
+:host ::ng-deep .ngx-gallery-arrow:hover {
+  opacity: 0.85;
+}
+.card-title {
+  min-height: inherit;
+}
+.text16 {
+  font-size: 16px;
+}
+.dcontent {
+  display: contents;
+}

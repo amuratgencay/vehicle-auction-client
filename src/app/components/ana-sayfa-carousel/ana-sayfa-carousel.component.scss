@@ -1,0 +1,78 @@
+@import "~bootstrap/scss/bootstrap";
+@import "../../../saas/consts/colors";
+:host ::ng-deep .carousel {
+  &-inner,
+  &-item {
+    height: 450px;
+    overflow: hidden;
+    img {
+      height: 100%;
+      min-width: 100%;
+      width: auto !important;
+    }
+  }
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-control-prev {
+    width: 40px;
+    height: 40px;
+    right: 80px;
+  }
+  &-item img {
+    background: rgba(19, 53, 62, 0.68);
+  }
+  &-container {
+    @include media-breakpoint-down(md) {
+      height: 0;
+    }
+  }
+
+  &-control-prev,
+  &-control-next {
+    z-index: 5000;
+    top: unset;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.8;
+    width: 60px;
+    height: 60px;
+   /* background-color: $color-ultra-dark;*/
+   background: rgba($color: #000000, $alpha: 0.4);
+    cursor: pointer;
+  }
+  &-caption {
+    position: absolute;
+    right: 5%;
+    bottom: 70px;
+    left: 5%;
+    z-index: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+  }
+  &-control-prev {
+    right: 100px;
+    left: unset;
+  }
+  &-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 448 512'%3e%3cpath d='M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z'/%3e%3c/svg%3e");
+  }
+  &-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 448 512'%3e%3cpath d='M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z'/%3e%3c/svg%3e");
+  }
+}
+.filter-dark-blue-t-21 {
+  width: 100%;
+  height: 100%;
+  background: $color-dark-filter-blue-t-21;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  padding: 185px 20px 100px 20px;
+  color: #fff;
+  opacity: 1;
+  width: 100%;
+}

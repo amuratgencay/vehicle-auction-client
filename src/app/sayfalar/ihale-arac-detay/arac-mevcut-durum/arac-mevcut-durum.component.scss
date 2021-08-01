@@ -1,0 +1,19 @@
+.y40 {width:40%}
+.y15 {width: 15%;}
+.table tbody, .table thead tr th {
+    padding: 5px 20px;
+    font-size: 15px;
+    border: 1px solid #dee2e6;
+    line-height: 30px;
+}
+.table td {vertical-align: baseline;}
+
+.tblbg {background: #f4f4f4;}
+
+button.rounded-pill {
+    border-radius: 12px !important;
+
+    &.gray-ultra-dark-background {
+        background: #5b5755 !important;
+    }
+}

@@ -1,0 +1,13 @@
+.fav {
+    &-column {
+        & .fav-col{
+            padding: 10px;
+            &:nth-child(2n+2){
+                border-bottom: 1px solid gray;
+            }
+            &:last-child{
+                border-bottom: 0;
+            }
+        }
+    }
+}

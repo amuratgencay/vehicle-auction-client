@@ -1,0 +1,56 @@
+@import "../consts/colors";
+
+.nav {
+    &-tabs {
+        & .nav-item {
+
+            & .triangle-orange {
+                display: none;
+                margin-top: -5px!important;
+            }
+
+            & .active {
+                color: #fff;
+                background: $color-amec-orange-one;
+
+                & .triangle-orange {
+                    display: block;
+                }
+            }
+
+            &:hover .active, & .active:hover {
+                color: #fff;               
+            }
+
+            @include media-breakpoint-down(md) {
+                margin-bottom: 22.5px;
+            }
+        }
+
+        & .nav-link {
+            height: 55px;
+            border-radius: 12px;
+            letter-spacing: -1px;
+
+            @include media-breakpoint-down(md) {
+                max-width: 250px;
+                margin: auto;
+            }
+            @include media-breakpoint-down(sm) {                
+                line-height: 15px;
+            }
+        }
+    }
+}
+
+.tab {
+
+    &-content,
+    &-content>.active {
+        display: flex;
+    }
+
+    &-pane {
+        width: 100%;
+    }
+}

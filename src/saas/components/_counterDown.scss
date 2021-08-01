@@ -1,0 +1,20 @@
+@import "../consts/colors";
+.counterDown {
+  & .black.rounded-circle {
+    border: solid 2.5px black;
+    width: 150px;
+    height: 150px;
+  }
+
+  &Text {
+    font-size: 55px;
+  }
+  & svg {
+    & circle {
+      fill: none;
+      stroke: black;
+      stroke-width: 17.5px;
+      transition: stroke-dashoffset 0.7s;
+    }
+  }
+}

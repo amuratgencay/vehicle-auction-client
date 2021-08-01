@@ -1,0 +1,32 @@
+<div class="col-lg-6 col-sm-12 table-responsive">
+    <table class="table gray-text">
+        <tbody>
+            <ng-container *ngFor="let donanim of donanimlar let i = index; let even = even">
+                <tr *ngIf="even">
+                    <td scope="row" class="red-text font-weight-bold text-center p-0">
+                        <svg-icon [src]="'assets/special/tick.svg'" class="icon-sm mt-n2 pl-4 pr-2"
+                            [svgStyle]="{fill:'#e84c0f', width: '16px'}">
+                        </svg-icon>
+                    </td>
+                    <th>{{donanim.donanimAd}}</th>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-6 col-sm-12 table-responsive">
+    <table class="table gray-text">
+        <tbody>
+            <ng-container *ngFor="let donanim of donanimlar let i = index; let odd = odd">
+                <tr *ngIf="odd">
+                    <td scope="row" class="red-text font-weight-bold text-center p-0">
+                        <svg-icon [src]="'assets/special/tick.svg'" class="icon-sm mt-n2 pl-4 pr-2"
+                            [svgStyle]="{fill:'#e84c0f', width: '16px'}">
+                        </svg-icon>
+                    </td>
+                    <th>{{donanim.donanimAd}}</th>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

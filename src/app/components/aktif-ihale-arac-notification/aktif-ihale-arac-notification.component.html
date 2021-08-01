@@ -1,0 +1,29 @@
+<div class="d-flex flex-row font-display-sm white-text p-2 no-gutters">
+    <div class="col-4 overflow-h">
+        <img [src]="(aktifArac?.aracResimleri|resimSec)?.thumbUrl" [alt]="aktifArac?.aracSeoUrl" class="img-fluid" />
+        <div [ngClass]="eskiArac ? 'orange-background' : 'green-background'"
+            class="position-absolute badge white-text rotate-l-37d5-2 text-center border-0">
+            {{aktifArac?.aracYili}}
+        </div>
+    </div>
+    <div class="col d-flex flex-column ml-3 mr-4">
+        <span>
+            <b>{{aktifArac?.aracAracVersionModelMarkaAd}}
+                {{aktifArac?.aracAracVersionModelAd}}</b>
+            <span class="float-right yellow-text" *ngIf="ihaleSayfalamaBilgisi">
+                <b>{{ihaleSayfalamaBilgisi.sayfadakiAracSira}} /
+                    {{ihaleSayfalamaBilgisi.aracSayisi}}</b>
+            </span>
+        </span>
+        <span class="truncate">
+            {{aktifArac?.aracAracVersionAd}}
+        </span>
+        <span class="w-100 font-display-lg">
+            <b>{{aktifArac?.baslangicFiyati|numberTrFormat}} ₺</b>
+        </span>
+        <a [routerLink]="['/ihale',aktifArac?.ihaleBilgisiId,'arac-detay',aktifArac?.id,aktifArac?.aracSeoUrl]"
+            role="button" class="btn rounded-1 p-1 orange-background text-center">
+            AKTİF İHALE <span class="ml-1">&#10095;</span>
+        </a>
+    </div>
+</div>

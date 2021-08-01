@@ -1,0 +1,33 @@
+.dropdown-md {
+    & .collapse, & .collapsing, & .collapsed {
+        & .active {
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
+    }
+    & .navbar {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+        & .collapse, & .collapsing, & .collapsed {
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
+        }
+        &-toggler {
+            background-color: transparent;
+            border-radius: 22.5px;
+        }
+    }
+    & .menu {
+        @include media-breakpoint-up(lg) {
+            display: block;
+            &:not(.show) {
+                display: block;
+            }
+        }
+    }
+
+}

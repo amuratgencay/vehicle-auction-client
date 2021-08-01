@@ -1,0 +1,24 @@
+.table {
+    color: inherit;
+
+    tbody,
+    & thead tr th {
+        padding: 15px 5px;
+    }
+
+    & tr {
+        width: 100%;
+
+        & th,
+        & td {
+            padding: 5px;
+            vertical-align: middle;
+        }
+    }
+
+    &-bordered {
+        &>tr.last>td {
+            border-bottom: 0 !important;
+        }
+    }
+}

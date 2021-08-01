@@ -1,0 +1,72 @@
+$font-display-exsm: 12px;
+$font-display-sm: 16px;
+$font-display-md: 18px;
+$font-display-lg: 22px;
+$font-display-exlg: 28px;
+$font-display-ultralg: 36px;
+
+$font-weight-thin: 100;
+$font-weight-exlight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-exbold: 800;
+$font-weight-black: 900;
+
+.font-smaller {
+    font-size: 90%;
+}
+
+.font-display-exsm {
+    font-size: $font-display-exsm;
+    @include media-breakpoint-down(md) {
+        font-size: 95%;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: 60%;
+    }
+}
+.small {
+    @include media-breakpoint-down(lg) {
+        font-size: 95%;
+    }
+}
+.font-display-sm {
+    font-size: $font-display-sm;
+    @include media-breakpoint-down(lg) {
+        font-size: 100%;
+    }
+}
+
+.font-display-md {
+    font-size: $font-display-md;
+}
+
+.font-display-lg {
+    font-size: $font-display-lg;
+}
+
+.font-display-exlg {
+    font-size: $font-display-exlg;
+}
+
+.font-display-ultralg {
+    font-size: $font-display-ultralg;
+}
+
+.font-weight-regular {
+    font-weight: $font-weight-regular;
+}
+
+.font-weight-medium {
+    font-weight: $font-weight-medium;
+}
+
+.font-weight-bold {
+    font-weight: $font-weight-bold;
+}
+.font-content-14 {
+    font-size: 14px;
+}

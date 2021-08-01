@@ -1,0 +1,25 @@
+<div class="col-12 gray-text mb-3">
+    1.6 TDI 120 HP Comfortline Tiptronic Sunroof R Line
+</div>
+<div class="d-flex flex-row px-3 h-60px">
+    <button role="button" (click)="seciliDegistir('ihaledeki')"
+        [ngClass]="secili === 'ihaledeki' ? 'white-text gray-ultra-dark-background':'gray-mid-background'"
+        class="btn  rounded-pill text-center p-3 px-5">
+        İHALEDEKİ ARAÇLAR
+    </button>
+    <button role="button" (click)="seciliDegistir('satilmis')"
+        [ngClass]="secili === 'satilmis' ? 'white-text gray-ultra-dark-background':'gray-mid-background'"
+        class="btn rounded-pill text-center p-3 px-5 ml-3">
+        SATILMIŞ ARAÇLAR
+    </button>
+</div>
+<ng-container *ngIf="secili==='ihaledeki'">
+    <div class="col-12 table-responsive gray-text">
+        <app-table [columns]="ihaledekiCols" [striped]="true" [data]="ihaledekiBenzerAraclar"></app-table>
+    </div>
+</ng-container>
+<ng-container *ngIf="secili==='satilmis'">
+    <div class="col-12 table-responsive gray-text">
+        <app-table [columns]="satilmisCols" [striped]="true" [data]="satilmisBenzerAraclar"></app-table>
+    </div>
+</ng-container>

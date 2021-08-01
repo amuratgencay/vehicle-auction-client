@@ -1,0 +1,33 @@
+<div class="col-lg-6 col-sm-12 pl-lg-4 pr-0 pt-2 pb-md-2 figure-caption float-right" *ngIf="ihaleSayfalamaBilgisi">
+    <ng-container *ngIf="ihaleArac && ihaleArac.ihaleDurum === 0 || ihaleArac.ihaleDurum === 4"> ŞU ANDA BU ARAÇLA {{takipSayisi}} KİŞİ İLGİLENİYOR!</ng-container>
+    <div class="float-right">
+        <a class="pr-1" *ngIf="ihaleSayfalamaBilgisi.oncekiAracId"
+            [routerLink]="ihaleSayfalamaBilgisi.oncekiAracId ? ['/ihale',ihaleId,'arac-detay',ihaleSayfalamaBilgisi.oncekiAracId,ihaleSayfalamaBilgisi.oncekiAracSeoUrl] : ''"
+            role="button">
+            <span class="badge-pill p-0 px-2" aria-hidden="true">
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    class="icon-xs">
+                    <path fill="#8a8a89"
+                        d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+                        class="">
+                    </path>
+                </svg> </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        {{ihaleSayfalamaBilgisi.sayfadakiAracSira}}/{{ihaleSayfalamaBilgisi.aracSayisi}}
+        <a class="pl-1" *ngIf="ihaleSayfalamaBilgisi.sonrakiAracId"
+            [routerLink]="['/ihale',ihaleId,'arac-detay',ihaleSayfalamaBilgisi.sonrakiAracId,ihaleSayfalamaBilgisi.sonrakiAracSeoUrl]"
+            role="button">
+            <span class="badge-pill p-0 px-2" aria-hidden="true">
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    class="icon-xs">
+                    <path fill="#8a8a89"
+                        d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                    </path>
+                </svg>
+
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+<div class="modal-content mt-n1">
+    <div class="modal-body px-5 font-smaller mt-n1">
+        <button type="button" (click)="modalRef.dismiss()" data-dismiss="modal" aria-label="Close"
+            class="close position-absolute fixed-top fixed-right px-2">
+            <span aria-hidden="true" class="font-display-ultralg">
+                &times;
+            </span>
+        </button>
+        <div class="row">
+            <div class="col-3 pr-0">
+                <div class="w-100 h-380px d-block">
+                    &nbsp;
+                </div>
+                <div class="fav fav-column d-flex flex-column text-center mt-5 font-weight-medium">
+                    <div class="fav-col">
+                        Katılım Bedeli
+                    </div>
+                    <div class="fav-col">
+                        Araç ID
+                    </div>
+                    <div class="fav-col">
+                        Renk
+                    </div>
+                    <div class="fav-col">
+                        Plaka
+                    </div>
+                    <div class="fav-col">
+                        Silindir Hacmi (cm3)
+                    </div>
+                    <div class="fav-col">
+                        Motor gücü (hp)
+                    </div>
+                    <div class="fav-col">
+                        Garanti Durumu
+                    </div>
+                    <div class="fav-col">
+                        Tescil Tarihi
+                    </div>
+                    <div class="fav-col">
+                        Son Muayene Tarihi
+                    </div>
+                    <div class="fav-col">
+                        Son Bakım Km
+                    </div>
+                    <div class="fav-col">
+                        Son Bakım Tarihi
+                    </div>
+                    <div class="fav-col px-0 px-md-3">
+                        Ekspertiz Raporu
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 pl-0">
+                <div class="row">
+                    <div class="col-4" *ngFor="let arac of secilenAraclar">
+                        <div class="card h-380px border-0" *ngIf="arac.ihaleArac">
+                            <div
+                                class="d-flex flex-row font-display-exsm font-weight-light gray-text align-items-center">
+                                <a type="button" (click)="cikar(arac)"
+                                    class="d-flex flex-row align-items-center figure-caption">
+                                    <span aria-hidden="true" class="font-display-lg font-weight-medium">
+                                        &times;
+                                    </span>
+                                    <span class="ml-1">Çıkar</span>
+                                </a>
+                            </div>
+                            <app-arac-card [arac]="arac.ihaleArac"></app-arac-card>
+                        </div>
+                        <div *ngIf="arac.ihaleArac"
+                            class="fav fav-column d-flex flex-column text-center mt-5 font-weight-medium">
+                            <div class="fav-col">
+                                {{(arac.ihaleArac.aracDepozit|numberTrFormat)|| '-'}} TL
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracAracNo|| '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracRenkAd|| '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracPlaka|| '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracSilindirHacmi|| '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracMotorGucu|| '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.aracGarantiDurumu ? 'Var':'Yok'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.tescilTarihi|date:'dd.MM.yyyy' || '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{arac.ihaleArac.sonMuayeneTarihi|date:'dd.MM.yyyy' || '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{(arac.ihaleArac.sonBakimKm|numberTrFormat) || '-'}}
+                            </div>
+                            <div class="fav-col">
+                                {{(arac.ihaleArac.sonBakimTarihi|date:'dd.MM.yyyy') || '-'}}
+                            </div>
+                            <div class="fav-col px-0 px-md-3 pt-3">
+                                <app-arac-ekspertiz-gecmisi [aracId]="arac.ihaleArac.aracId" [showInModal]="true">
+                                </app-arac-ekspertiz-gecmisi>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer align-content-center justify-content-center mt-3">
+        <button type="button" (click)="modalRef.dismiss()" aria-label="Close"
+            class="btn col-4 rounded-0 orange-background white-text">
+            TAMAM
+        </button>
+    </div>
+</div>

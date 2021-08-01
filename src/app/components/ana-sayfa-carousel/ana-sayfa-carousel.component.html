@@ -1,0 +1,15 @@
+<div class="text-right carousel-container pr-0 d-none d-lg-block">
+    <ngb-carousel *ngIf="slides">
+        <ng-template ngbSlide *ngFor="let slide of slides">
+            <a [routerLink]="['slider-icerik',slide.id]">
+                <img [src]="slide.url" [alt]="slide.baslik">
+                <div class="carousel-caption filter-dark-blue-t-21"
+                    *ngIf="slide.baslik.trim() || slide.resimAciklama.trim()">
+                    <h3>{{slide.baslik}}
+                    </h3>
+                    <p> {{slide.resimAciklama}}</p>
+                </div>
+            </a>
+        </ng-template>
+    </ngb-carousel>
+</div>

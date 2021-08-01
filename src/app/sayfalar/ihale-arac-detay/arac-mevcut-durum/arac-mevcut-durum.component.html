@@ -1,0 +1,60 @@
+<div class="col-lg-6 col-sm-12 col-12 px-3 pb-4 m-0 gray-text">
+    AÇIKLAMA
+
+    <div class="pt-4 dark-gray-text" *ngIf="arac" [innerHTML]="arac.ekspertizAciklama">
+    </div>
+    <button (click)="indir()"
+        class="btn gray-ultra-dark-background rounded-pill white-text position-absolute-lg fixed-bottom-lg fixed-left mb-4 mt-3 p-3 px-lg-5">
+        RAPORU İNDİR
+    </button>
+</div>
+<div class="col-lg-6 col-sm-12 col-12 px-3 m-0 table-responsive mb-4">
+    <table class="table table-bordered gray-text">
+        <thead>
+            <tr class="text-center">
+                <th scope="row" class="border-0"></th>
+                <th scope="col" class="border-right border-top border-left border-bottom-0 tblbg" colspan="2">
+                    Çizik</th>
+                <th scope="col" class="border tblbg" colspan="2">Hasar</th>
+            </tr>
+            <tr class="text-center">
+                <th scope="row" class="border-0 y40"></th>
+                <th scope="col-2" class="border-left tblbg y15">Küçük</th>
+                <th scope="col-2" class="tblbg y15">Büyük</th>
+                <th scope="col-2" class="tblbg y15">Hafif</th>
+                <th scope="col-2" class="border-right tblbg y15">Ağır</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let parca of parcalar">
+                <ng-container>
+                    <th scope="row" class="border-left-0">{{parca.ad}}</th>
+                    <td class="red-text font-display-ultralg font-weight-bold text-center p-0">
+                        <ng-container *ngIf="parcayaGoreGetir(parca)?.cizikKucuk">
+                            <svg-icon [src]="'assets/special/tick.svg'" [svgStyle]="{fill:'#e84c0f', width: '20px'}">
+                            </svg-icon>
+                        </ng-container>
+                    </td>
+                    <td class="red-text font-display-ultralg font-weight-bold text-center p-0">
+                        <ng-container *ngIf="parcayaGoreGetir(parca)?.cizikBuyuk">
+                            <svg-icon [src]="'assets/special/tick.svg'" [svgStyle]="{fill:'#e84c0f', width: '20px'}">
+                            </svg-icon>
+                        </ng-container>
+                    </td>
+                    <td class="red-text font-display-ultralg font-weight-bold text-center p-0">
+                        <ng-container *ngIf="parcayaGoreGetir(parca)?.hasarHafif">
+                            <svg-icon [src]="'assets/special/tick.svg'" [svgStyle]="{fill:'#e84c0f', width: '20px'}">
+                            </svg-icon>
+                        </ng-container>
+                    </td>
+                    <td class="red-text font-display-ultralg font-weight-bold text-center p-0 border-right-0">
+                        <ng-container *ngIf="parcayaGoreGetir(parca)?.hasarAgir">
+                            <svg-icon [src]="'assets/special/tick.svg'" [svgStyle]="{fill:'#e84c0f', width: '20px'}">
+                            </svg-icon>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

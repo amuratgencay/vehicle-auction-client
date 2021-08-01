@@ -1,0 +1,62 @@
+@import "../consts/colors";
+
+.pagination {
+    & .page-item {
+        color: $color-ultra-dark;
+
+        &:first-child .page-link span,
+        &:last-child .page-link span {
+            font-size: 45px;
+            padding: 0 15px;
+            display: block;
+            margin-top: -22.5px;
+        }
+
+        & .page-link {
+            min-width: 40px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 50% !important;
+            color: inherit;
+        }
+
+        &.active .page-link {
+            background-color: $color-amec-orange-one;
+            border-color: unset;
+            border: none;
+            color: white;
+        }
+    }
+    &.small {
+        &:first-child .page-link span,
+        &:last-child .page-link span {
+            font-size: 35px;
+            margin-top: -17.5px;
+        }
+        & .page-link {
+            min-width: 30px;
+            height: 30px;
+            padding: 7px 8px;
+            margin-right: 5px;
+        }
+        @include media-breakpoint-down(sm) {
+            position: absolute;
+            bottom: -170px;
+            margin: auto;
+            right: 50%;
+            left: 50%;
+        }
+    }
+    &.square {
+        &:first-child .page-link span,
+        &:last-child .page-link span {
+            font-size: inherit;
+            margin-top: 0;
+        }
+        & .page-link {
+        min-width: 30px;
+        padding: 10px 45px;
+        border-radius: 0 !important;
+        }
+    }
+}

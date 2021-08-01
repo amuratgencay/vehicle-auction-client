@@ -1,0 +1,33 @@
+<div class=" p-3 px-5">
+    <div class="modal-header text-center d-block position-relative">
+        <a href="/" target="_blank" class="w-100 m-auto d-block">
+            <img rel="Avec Logo" class="avec-logo" src="assets/img/svg-logos/avec_ikinciel_logo.svg" />
+        </a>
+        <h3 class="modal-title w-100 pt-1 font-display-ultralg mt-4" id="exampleModalLabel">
+            {{kapananIhale.kapananIhaleAd}} İhalemiz Bitmiştir.
+        </h3>
+    </div>
+    <div class="modal-body px-3">
+        <strong>
+            İhalemize katılımınız için Teşekkür Ederiz.
+        </strong>
+        <br>
+        <br>
+        <ng-container *ngIf="kapananIhale.enYakinIhaleBaslangic">
+            Yepyeni araçlarlarla bir sonraki ihalemiz
+            <div class="w-100 mt-2 no-gutters">
+                <strong class="col-6">Başlangıç Tarihi:</strong><span
+                    class="ml-2 col-6">{{kapananIhale.enYakinIhaleBaslangic|date:'dd.MM.yyyy' }}</span>
+                <div class="w-100"></div>
+                <strong class="col-6">Başlangıç Saati:</strong><span
+                    class="ml-2 col-6">{{kapananIhale.enYakinIhaleBaslangic|date:'HH:mm' }}</span>
+            </div>
+        </ng-container>
+    </div>
+    <div class="modal-footer justify-content-center">
+        <a routerLink="/" (click)="modal.dismiss()"
+            class="btn rounded-0 orange-background white-text w-100 p-3">
+            ANA SAYFAYA GİT
+        </a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.siradaki.card {overflow: unset;}
+
+.siradaki.card {
+    border-right: 1px solid #dee2e6 ;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    border-radius: 0;
+  }
+  .siradaki.card:nth-child(5) {
+    border-right: none !important;
+  }

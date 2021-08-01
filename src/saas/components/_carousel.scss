@@ -1,0 +1,40 @@
+.carousel {
+
+    &-inner,
+    &-item {
+        height: 450px;
+        overflow: hidden;
+    }
+
+    &-container {
+        @include media-breakpoint-down(md) {
+            height: 0;
+        }
+    }
+
+    &-control-prev,
+    &-control-next {
+        z-index: 5000;
+        top: unset;
+        bottom: 20px;
+        right: 20px;
+        opacity: 0.8;
+        width: 60px;
+        height: 60px;
+        &-detail{
+            right:0;
+            left:unset;
+        }
+    }
+
+    &-control-prev {
+        left: 85px;
+        left: unset;
+        &-detail{
+            left:0;
+            right:unset;
+        }
+    }
+
+
+}

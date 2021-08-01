@@ -1,0 +1,33 @@
+@import "./colors";
+@import "./fonts";
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: unset;
+}
+.container {
+    @include media-breakpoint-down(lg) {
+        max-width: 100%;
+    }
+}
+
+.btn{
+    border-radius: unset;
+    &:hover {
+        color: inital;
+    }
+}
+
+.dropdown-toggle::after {
+    border: none;
+}
+
+.modal {
+    &-dialog {
+        &.container-fluid {
+            max-width: unset;
+        }
+    }
+    &-content {
+        border-radius: 15px;
+    }
+}

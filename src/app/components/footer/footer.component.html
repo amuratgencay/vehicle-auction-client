@@ -1,0 +1,124 @@
+<footer class="gray-light-background pt-5">
+  <div class="container font-display-sm ultra-dark-grey-text align-items-md-center flex-flow-wrap">
+    <div class="col-lg-3 col-md-3 col-sm-12 pb-3">
+      <span class="font-display-md font-weight-medium">Kurumsal</span>
+      <ul class="list-unstyled">
+        <ng-container *ngFor="let menu of menuler">
+          <ng-container *ngIf="menu.altKategoriler && menu.altKategoriler.length">
+            <li *ngFor="let altMenu of menu.altKategoriler">
+              <a [routerLink]="['/icerik', altMenu.kod]">{{altMenu.gorunurMetin}}</a>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 pb-3">
+      <span class="font-display-md font-weight-medium">Araçlar</span>
+      <ul class="list-unstyled">
+        <li><a href="https://www.avek.com.tr/Satis/Markalar/Volkswagen" target="_blank">Volkswagen</a> </li>
+        <li><a href="https://www.avek.com.tr/Satis/Markalar/Volkswagen-Ticari-Arac" target="_blank">Volkswagen Ticari
+            Araç</a> </li>
+        <li><a href="https://www.avek.com.tr/Satis/Markalar/Audi" target="_blank">Audi</a> </li>
+        <li><a href="https://www.avek.com.tr/Satis/Markalar/Seat" target="_blank">Seat</a> </li>
+        <li><a href="https://www.avek.com.tr/Satis/Markalar/Skoda" target="_blank">Skoda</a> </li>
+      </ul>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 pb-3">
+      <span class="font-display-md font-weight-medium" style="cursor: pointer;"
+        [routerLink]="['/icerik', 'nasil-calisir']">Nasıl
+        Çalışır?</span>
+      <ul class="list-unstyled font-display-md">
+        <ng-container *ngFor="let menu of menuler">
+          <ng-container *ngIf="!menu.altKategoriler || !menu.altKategoriler.length">
+            <li *ngIf="menu.kod !=='nasil-calisir'">
+              <a [routerLink]="['/icerik', menu.kod]">{{menu.gorunurMetin}}</a>
+            </li>
+          </ng-container>
+        </ng-container>
+        <li class="pt-3 pb-0">
+          <a href="{{facebook?.deger|removeHtmlTags}}" target="_blank">
+            <img class="icon-md mr-2" src="assets/img/fontawesome/facebook-f-brands.svg" />
+          </a>
+          <a href="{{twitter?.deger|removeHtmlTags}}" target="_blank">
+            <img class="icon-md mr-2" src="assets/img/fontawesome/twitter-brands.svg" />
+          </a>
+          <a href="{{instagram?.deger|removeHtmlTags}}" target="_blank">
+            <img class="icon-md mr-2" src="assets/img/fontawesome/instagram-brands.svg" />
+          </a>
+          <a href="{{youtube?.deger|removeHtmlTags}}" target="_blank mr-2">
+            <img class="icon-md mr-2" src="assets/img/fontawesome/youtube-brands.svg" />
+          </a>
+          <a href="{{linkedin?.deger|removeHtmlTags}}" target="_blank mr-2">
+            <img class="icon-md mr-2" src="assets/img/fontawesome/linkedin-in-brands.svg" />
+          </a>
+        </li>
+        <li class="row d-flex flex-nowrap p-0 m-0">
+          <a href="#" target="_blank" class="pr-1">
+            <img class="" src="assets/img/static/playstore_256.png" />
+          </a>
+          <a href="#" target="_blank" class="">
+            <img class="" src="assets/img/static/appstore_256.png" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 pb-3">
+      <span class="font-display-md font-weight-medium">İletişim</span>
+      <ul class="list-unstyled">
+        <li>
+          <div class="row">
+            <div class="col-2">
+              <img class="icon-xs" src="assets/img/fontawesome/envelope-solid.svg" />
+            </div>
+            <div class="col-10">
+              <a href="mailto:{{eposta?.deger|removeHtmlTags}}" [innerHTML]="eposta?.deger|removeHtmlTags">
+              </a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <div class="col-2">
+              <img class="icon-xs" src="assets/img/fontawesome/phone-alt-solid.svg" />
+            </div>
+            <div class="col-10">
+              <a href="tel://{{telefon?.deger|removeHtmlTags}}" [innerHTML]="telefon?.deger|removeHtmlTags">
+              </a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row ">
+            <div class="col-2">
+              <img class="icon-xs" src="assets/img/fontawesome/location-arrow-solid-orange.svg" />
+            </div>
+            <div class="col-10 paragraf" [innerHTML]="adres?.deger"></div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container d-flex pt-4 pb-4 border-top text-center">
+    <div class="row">
+      <a href="https://pasaligrubu.com/" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/pasali-grubu.png" />
+      </a>
+      <a href="https://www.avek.com.tr/" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/avek-otommotiv.png" />
+      </a>
+      <a href="#" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/gurtas-yapi.png" />
+      </a>
+      <a href="https://www.avecrentacar.com/" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/avec-c.png" />
+      </a>
+      <a href="http://www.tronapay.com/tr/anasayfa" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/trona-pay.png" />
+      </a>
+      <a href="https://www.kleentech.com.tr/" target="_blank" class="col-xl-2 col-md-3 col-sm-3 p-1 col-4 px-4">
+        <img class="img-responsive" src="assets/img/static/logo/kleen-tech.png" />
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+<div class="d-flex flex-row font-display-sm white-text p-2 no-gutters" *ngFor="let arac of araclar">
+    <div class="col d-flex flex-column ml-3 mr-4">
+        <span>
+            <b>{{arac?.ihaleAracAracAracVersionModelMarkaAd}} {{arac?.ihaleAracAracAracVersionModelAd}}</b>
+
+        </span>
+        <span>
+            {{arac?.ihaleAracAracAracVersionAd}}
+        </span>
+        <span>
+            <span class="w-100 font-display-lg">
+                <b>{{arac?.ihaleAracBaslangicFiyati|numberTrFormat}} ₺</b>
+            </span>
+            <span class="float-right yellow-text">
+                <b>Favorilerine Kalan Araç : {{arac?.ihaleAracIhaleSirasi - guncelSira}}</b>
+            </span>
+        </span>
+    </div>
+</div>

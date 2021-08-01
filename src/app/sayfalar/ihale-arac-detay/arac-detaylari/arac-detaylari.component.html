@@ -1,0 +1,112 @@
+<div class="col-lg-6 col-sm-12 table-responsive" *ngIf="arac">
+    <table class="table gray-text">
+        <tbody>
+            <tr>
+                <th scope="row">Araç ID</th>
+                <th>:</th>
+                <td>{{arac.aracNo}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Marka</th>
+                <th>:</th>
+                <td>{{arac.aracVersionModelMarkaAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Model</th>
+                <th>:</th>
+                <td>{{arac.aracVersionModelAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Model Versiyon</th>
+                <th>:</th>
+                <td>{{arac.aracVersionAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Model Yılı</th>
+                <th>:</th>
+                <td>{{arac.yili}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Kilometre</th>
+                <th>:</th>
+                <td>{{arac.sonKm|numberTrFormat}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Yakıt Tipi</th>
+                <th>:</th>
+                <td>{{arac.yakitTipiAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Şanzıman Tipi</th>
+                <th>:</th>
+                <td>{{arac.vitesTipiAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Renk</th>
+                <th>:</th>
+                <td>{{arac.renkAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Araç Lokasyon</th>
+                <th>:</th>
+                <td>{{arac.lokasyonAd}}</td> 
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-6 col-sm-12 table-responsive"  *ngIf="arac">
+    <table class="table gray-text">
+        <tbody>
+            <tr>
+                <th scope="row">Ruhsat Sahibi</th>
+                <th>:</th>
+                <td>{{arac.ruhsatSahibiAd}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Plaka</th>
+                <th>:</th>
+                <td>{{arac.plaka}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Tescil Tarihi</th>
+                <th>:</th>
+                <td>{{arac.tescilTarihi|date:'dd.MM.yyyy'}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Son Muayene Tarihi</th>
+                <th>:</th>
+                <td>{{arac.sonMuayeneTarihi|date:'dd.MM.yyyy'}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Katılım Bedeli</th>
+                <th>:</th>
+                <td>{{arac.depozit|numberTrFormat}} ₺</td>
+            </tr>
+            <tr>
+                <th scope="row">Silindir Hacmi (cm3)</th>
+                <th>:</th>
+                <td>{{arac.silindirHacmi}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Motor Gücü (hp)</th>
+                <th>:</th>
+                <td>{{arac.motorGucu}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Garanti Durumu</th>
+                <th>:</th>
+                <td>{{arac.garantiDurumu ? 'Var' : 'Yok'}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Son Bakım Km</th>
+                <th>:</th>
+                <td>{{arac.sonBakimKm|numberTrFormat}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Son Bakım Tarihi</th>
+                <th>:</th>
+                <td>{{arac.sonBakimTarihi|date:'dd.MM.yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

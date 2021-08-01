@@ -1,0 +1,22 @@
+$color-ultra-dark: #343434;
+:host {
+  position: relative;
+  overflow: hidden;
+  width: 380px !important;
+  height: 150px !important;
+  border-radius: 3px 3px 3px 3px;
+  margin: 0px !important;
+  padding: 0px !important;
+  pointer-events: all;
+  background-color: $color-ultra-dark;
+  color: white;
+  &:hover {
+    color: white;
+  }
+}
+.truncate {
+  width: 200px!important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

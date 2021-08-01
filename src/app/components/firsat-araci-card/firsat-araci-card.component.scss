@@ -1,0 +1,172 @@
+.badge-f {
+  top: 75px;
+  opacity: 0.9;
+}
+.badge {
+  right: -15%;
+  top: 7%;
+  font-size: 110%;
+}
+.firsat-badge {
+  width: 40%;
+  margin-bottom: 20px;
+}
+.card-title {
+  min-height: inherit;
+}
+.card-big {
+  background: #fff;
+  box-shadow: 0 0.05rem 1.5rem rgba(0, 0, 0, 0.1);
+  height: inherit;
+}
+.card-body {
+  padding-left: 0.5rem !important;
+  padding-top: 1rem;
+}
+.btn-aracdetay {
+  background: #f4f4f4;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid #e6e6e6;
+}
+
+.firsataracitag {
+  margin: 0 50px;
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  background: #ea5e27;
+  color: #fff;
+  text-align: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 99%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    line-height: 0;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #ea5e27 #ea5e27 #ea5e27 transparent;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: 99%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    line-height: 0;
+    border-width: 20px;
+    border-style: solid;
+    border-color: #ea5e27 #ea5e27 #ea5e27 transparent;
+  }
+}
+.heartbeat {
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+.firsatbilgi {
+  float:right;
+  text-align:right;
+  font-size:13px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.satilditxt {
+  top: 4.2%;
+  background: #5b5755;
+  right: -18%;
+  font-size: 14px;
+  color: #ff0;
+}
+@media (max-width: 575.98px) {
+.satilditxt {
+  top: 3.6% !important;
+  background: #5b5755;
+  right: -18.5% !important;
+  font-size: 12px;
+  color: #ff0;
+  }
+}

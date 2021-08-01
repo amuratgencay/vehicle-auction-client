@@ -1,0 +1,31 @@
+<button type="button" class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton" *ngIf="teklifArtisButton1"
+    [disabled]="buttonlarKapali" [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton1 ? 'active':'' "
+    (click)="teklifVer(teklifArtisButton1)">
+    {{teklifArtisButton1|numberTrFormat}} ₺
+</button>
+<button class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton"
+    [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton2 ? 'active':'' " *ngIf="teklifArtisButton2"
+    [disabled]="buttonlarKapali" (click)="teklifVer(teklifArtisButton2)">
+    {{teklifArtisButton2|numberTrFormat}} ₺
+</button>
+<button class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton"
+    [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton3 ? 'active':'' " *ngIf="teklifArtisButton3"
+    [disabled]="buttonlarKapali" (click)="teklifVer(teklifArtisButton3)">
+    {{teklifArtisButton3|numberTrFormat}} ₺
+</button>
+<div class="w-100"></div>
+<button class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton"
+    [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton4 ? 'active':'' " *ngIf="teklifArtisButton4"
+    [disabled]="buttonlarKapali" (click)="teklifVer(teklifArtisButton4)">
+    {{teklifArtisButton4|numberTrFormat}} ₺
+</button>
+<button class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton"
+    [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton5 ? 'active':'' " *ngIf="teklifArtisButton5"
+    [disabled]="buttonlarKapali" (click)="teklifVer(teklifArtisButton5)">
+    {{teklifArtisButton5|numberTrFormat}} ₺
+</button>
+<button class="btn col-4 px-3 p-2 mb-2 gray-mid-background radius-10 mx-1 teklifbutton"
+    [ngClass]="sonTeklifGuncelUyedeMi && sonArtis === teklifArtisButton6 ? 'active':'' " *ngIf="teklifArtisButton6"
+    [disabled]="buttonlarKapali" (click)="teklifVer(teklifArtisButton6)">
+    {{teklifArtisButton6|numberTrFormat}} ₺
+</button>

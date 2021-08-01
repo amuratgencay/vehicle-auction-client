@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-sm-6 mt-5 font-content-14">
+            <h3>İletişim</h3>
+            <div class="row mt-4">
+                <div class="col-12 paragraf">
+                    <h4 class="font-display-md">Firma Bilgileri</h4>
+                </div>
+                <div class="col-md-6 col-sm-12 mt-2" [innerHTML]="firmaAdi?.deger"></div>
+                <div class="col-md-6 col-sm-12 mt-2">
+                    <b>Vergi Dairesi : </b>
+                    <div [innerHTML]="vergiDairesi?.deger|removeHtmlTags"></div>
+                    <b>Vergi Numarası : </b>
+                    <div [innerHTML]="vergiNumarasi?.deger|removeHtmlTags"></div>
+                    <b>Kep Adresi : </b>
+                    <a href="mailto:{{kepAdresi?.deger|removeHtmlTags}}" [innerHTML]="kepAdresi?.deger|removeHtmlTags"> </a>
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div class="col-12 paragraf">
+                    <h4 class="font-display-md">Adres Bilgileri</h4>
+                </div>
+                <div class="col-12 mt-2">
+                    <img class="icon-xs mr-2" src="assets/img/fontawesome/location-arrow-solid-orange.svg" />
+                    Oruç Reis Mahallesi, Giyimkent Sitesi, Giyimkent Caddesi No:2/A<br />
+                    Avek Plaza Esenler / İstanbul<br />
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 paragraf">
+                    <h4 class="font-display-md">E-Posta Adresi</h4>
+                </div>
+
+                <div class="col-12 mt-2">
+                    <img class="icon-xs mr-2" src="assets/img/fontawesome/envelope-solid.svg" />
+                    <a href="mailto:{{eposta?.deger|removeHtmlTags}}" [innerHTML]="eposta?.deger|removeHtmlTags"> </a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 paragraf">
+                    <h4 class="font-display-md">Telefon</h4>
+                </div>
+                <div class="col-12 mt-2">
+                    <img class="icon-xs mr-2" src="assets/img/fontawesome/phone-alt-solid.svg" />
+                    <a href="tel://{{telefon?.deger|removeHtmlTags}}" [innerHTML]="telefon?.deger|removeHtmlTags">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12 mt-5 font-content-14">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.9138372160196!2d28.865322314785622!3d41.07087602352042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab004ccae8c73%3A0x576cd291e9256d6b!2sAvek%20Otomotiv%20Tekstilkent!5e0!3m2!1str!2str!4v1575725826445!5m2!1str!2str"
+                width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>​
+        </div>
+    </div>
+</div>

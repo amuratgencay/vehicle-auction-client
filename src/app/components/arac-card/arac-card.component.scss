@@ -1,0 +1,70 @@
+.rotate-l-37d5 {
+  transform: rotate(37.5deg);
+}
+.figure-caption {
+  font-size: 14px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: initial;
+}
+.card-title {
+  min-height: initial;
+}
+.card-body {
+  min-height: initial;
+}
+.onecikan.card, 
+.siradaki.card {
+  overflow: unset;
+}
+.card-carousel {
+    &:hover {
+      -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+      -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+      box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+
+      & .card-body {
+        background:#f4f4f4;
+      }  
+
+      & .firsatAraci {
+        background:#e84c0f !important;
+      }
+    }
+  }
+
+  .satildi {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 1;
+    width: 80%;
+  }
+
+  .satilditxt {
+    position: absolute;
+    z-index: 300;
+    background: #343434a8;
+    font-size: 13px;
+    color: #f5f503;
+    bottom: 0;
+    padding: 2px 20px;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 700;
+    min-height: inherit;
+    height: inherit;
+    top: inherit;
+    left: inherit;
+    text-align: center;
+  }
+
+  .satilmadi
+  {
+      display: none;
+      visibility: hidden;
+      width: 0px;
+      height: 0px;
+  }

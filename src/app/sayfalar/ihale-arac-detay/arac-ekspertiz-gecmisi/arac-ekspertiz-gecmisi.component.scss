@@ -1,0 +1,195 @@
+.car {
+    &-partials {
+    }
+    &-body{
+        background-image: url("/assets/img/car-partials/araba_bos.svg");
+        background-repeat: no-repeat;
+        
+         & * {
+            height:100%;
+            min-width: 100%;
+            background-repeat: no-repeat;
+        }
+
+
+        & .arkaaltbagaj {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_alt_bagaj.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_alt_bagaj.svg");
+            }
+        }
+        & .arkabagaj {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_bagaj.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_bagaj.svg");
+            }
+        }
+        & .arkasagcamurluk {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sag_camurluk.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sag_camurluk.svg");
+            }
+        }
+        & .arkasagkapi {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sag_kapi.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sag_kapi.svg");
+            }
+        }
+        & .arkasagtampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sag_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sag_tampon.svg");
+            }
+        }
+        & .arkasolcamurluk {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sol_camurluk.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sol_camurluk.svg");
+            }
+        }
+        & .arkasolkapi {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sol_kapi.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sol_kapi.svg");
+            }
+        }
+        & .arkasoltampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_sol_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_sol_tampon.svg");
+            }
+        }
+        & .arkatampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_tampon.svg");
+            }
+        }
+        & .arkaustbagaj {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/arka_ust_bagaj.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/arka_ust_bagaj.svg");
+            }
+        }
+        & .onkaput {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_kaput.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_kaput.svg");
+            }
+        }
+        & .onsagcamurluk {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sag_camurluk.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sag_camurluk.svg");
+            }
+        }
+        & .onsagkapi {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sag_kapi.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sag_kapi.svg");
+            }
+        }
+        & .onsagtampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sag_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sag_tampon.svg");
+            }
+        }
+        & .onsolcamurluk {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sol_camurluk.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sol_camurluk.svg");
+            }
+        }
+        & .onsolkapi {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sol_kapi.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sol_kapi.svg");
+            }
+        }
+        & .onsoltampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_sol_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_sol_tampon.svg");
+            }
+        }
+        & .ontampon {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/on_tampon.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/on_tampon.svg");
+            }
+        }
+        & .tavan {
+            position: absolute;
+            &.boyali{
+                background-image: url("/assets/img/car-partials/boyali/tavan.svg");
+            }
+            &.degisen{
+                background-image: url("/assets/img/car-partials/degisen/tavan.svg");
+            }
+        }
+    }
+}
+
+.car-body.h-100.min-h-300px, .car-body.h-100.min-h-300px *  {
+    height:100% !important;
+    min-width: 270px !important;
+    width: 270px !important;
+    background-repeat: no-repeat;
+        
+}

@@ -1,0 +1,91 @@
+<ng-container *ngIf="!showInModal">
+    <div class="col-lg-4 col-sm-12 mx-2 mb-4 p-0 car-partials car-body h-100">
+        <ng-container *ngFor="let degisen of degisenParcalar">
+
+            <div class="degisen" *ngFor="let class of getClassName(degisen.aracParcaAd)" [ngClass]="class">
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let degisen of boyaliParcalar">
+            <div class="boyali" *ngFor="let class of getClassName(degisen.aracParcaAd)" [ngClass]="class">
+            </div>
+        </ng-container>
+    </div>
+    <div class="col-lg-8 col-sm-12 px-4 m-0">
+        <div class="row gray-text px-4">
+            ARAÇ DURUMU
+        </div>
+        <ng-container
+            *ngIf="(boyaliParcalar && boyaliParcalar.length) || (degisenParcalar && degisenParcalar.length) ;else other_content">
+            <div class="w-100 dark-gray-text px-2 pt-1">
+                Boyanan ya da Değişen Kaporta Parçası Var.
+            </div>
+        </ng-container>
+        <ng-template #other_content>
+            <div class="w-100 dark-gray-text px-2 pt-1">
+                Araç Orjinaldir
+            </div>
+        </ng-template>
+        <div class="row pl-sm-5 d-flex"
+            *ngIf="(boyaliParcalar && boyaliParcalar.length) || (degisenParcalar && degisenParcalar.length)">
+            <div class="col-lg-6 col-sm-12 p-0 pl-4 position-relative">
+                <div class="position-absolute fixed-top fixed-left boyali pt-4">
+                    &#9632;
+                </div>
+                <div class="w-100 gray-text pt-4">
+                    Boyalı Parçalar
+                </div>
+                <div class="w-100 dark-gray-text pt-1" *ngFor="let bp of boyaliParcalar">
+                    {{bp.aracParcaAd}}
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-0 pl-4 position-relative">
+                <div class="position-absolute fixed-top fixed-left degisen pt-4">
+                    &#9632;
+                </div>
+                <div class="w-100 gray-text pt-1 pt-4">
+                    Değişen Parçalar
+                </div>
+                <div class="w-100 dark-gray-text" *ngFor="let dp of degisenParcalar">
+                    {{dp.aracParcaAd}}
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="showInModal">
+    <div class="car-partials car-body h-100 min-h-300px">
+        <ng-container *ngFor="let degisen of degisenParcalar">
+            <div class="degisen" *ngFor="let class of getClassName(degisen.aracParcaAd)" [ngClass]="class">
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let degisen of boyaliParcalar">
+            <div class="boyali" *ngFor="let class of getClassName(degisen.aracParcaAd)" [ngClass]="class">
+            </div>
+        </ng-container>
+    </div>
+    <div class="pt-1 text-left"
+        *ngIf="(boyaliParcalar && boyaliParcalar.length) || (degisenParcalar && degisenParcalar.length)">
+        <div class="position-relative pl-4">
+            <div class="position-absolute fixed-top fixed-left red-text">
+                ■
+            </div>
+            <div class="w-100 gray-text">
+                Boyalı Parçalar
+            </div>
+            <div class="w-100 dark-gray-text pt-1" *ngFor="let bp of boyaliParcalar">
+                {{bp.aracParcaAd}}
+            </div>
+        </div>
+        <div class="position-relative pl-4">
+            <div class="position-absolute fixed-top fixed-left blue-text">
+                ■
+            </div>
+            <div class="w-100 gray-text pt-1">
+                Değişen Parçalar
+            </div>
+            <div class="w-100 dark-gray-text" *ngFor="let dp of degisenParcalar">
+                {{dp.aracParcaAd}}
+            </div>
+        </div>
+    </div>
+</ng-container>

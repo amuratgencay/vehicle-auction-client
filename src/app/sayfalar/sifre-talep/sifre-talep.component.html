@@ -1,0 +1,37 @@
+<div class="container text-center max-width-700 nb-theme-default">
+    <div class="row d-flex-row px-5 pt-5 pb-2">
+        <div class="col-12">
+            <h4 class="pb-5 font-weight-medium">ŞİFRE TALEP ET</h4>
+        </div>
+        <div class="col-12" *ngIf="sonuc">
+            <ngb-alert [dismissible]="false" *ngIf="!sonuc.sonuc" type="danger">{{ sonuc.mesaj }}</ngb-alert>
+            <ngb-alert [dismissible]="false" *ngIf="sonuc.sonuc" type="success">{{ sonuc.mesaj }}
+            </ngb-alert>
+        </div>
+        <ng-container>
+            <div class="col-12">
+                <form [formGroup]="form" novalidate="">
+
+                    <div class="col-sm-12 form-group">
+                        <input type="email" class="form-control" id="inputPassword1" formControlName="eposta"
+                            placeholder="Eposta"
+                            [ngClass]="{ 'is-invalid': form.get('eposta') &&form.get('eposta').errors }">
+                        <div *ngIf="form.get('eposta') && form.get('eposta').touched && form.get('eposta').errors"
+                            class="invalid-feedback">
+                            <small *ngIf="form.get('eposta').errors.required">Eposta
+                                zorunludur</small>
+                            <small *ngIf="form.get('eposta').errors.email">Eposta geçerli
+                                değil</small>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" [disabled]="form.invalid || count" (click)="gonder()"
+                            class="btn rounded-0 orange-background white-text w-100">
+                            {{sonuc && sonuc.sonuc ? 'TEKRAR GÖNDER ( ' + (counter$|async)+ ' )':'GÖNDER'}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </ng-container>
+    </div>
+</div>

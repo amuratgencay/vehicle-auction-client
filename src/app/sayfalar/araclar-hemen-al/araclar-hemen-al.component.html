@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row mb-5">
+        <div
+            class="col-sm-12 col-lg-22d22 card left-side-menu list-group list-group-flush p-0 transparent font-display-sm">
+            <app-sol-arama-menu></app-sol-arama-menu>
+        </div>
+        <div class="col-sm-12 col-lg-77d78 p-0 pl-lg-4">
+            <div class="w-100 pb-3">
+                <div class="row">
+                    <div class="col-xl-8 col-12 mt-lg-0 mt-4">
+                        <ul class="row d-flex flex-lg-row nav nav-tabs nav-fill border-0 position-relative">
+                            <li class="nav-item pr-lg-1 pr-md-0 col-6 col-sm-6 col-xs-6 col-lg-3 col-xl-auto mb-md-4">
+                                <a role="button" class="nav-link border-0 round-circle p-2 pt-3 gray-mid-background"
+                                    [routerLink]="['/hemen-al','araclar','aktif']" queryParamsHandling="merge"
+                                    [ngClass]="tab === 'aktif' ? 'active' : ''">
+                                    AKTİF HEMEN AL ARAÇLARI
+                                    <div class="triangle triangle-orange rotate45deg m-auto"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item px-lg-1 px-md-0 col-6 col-sm-6 col-xs-6 col-lg-3 col-xl-auto">
+                                <a role="button" class="nav-link border-0 round-circle p-2 pt-3 gray-mid-background"
+                                    [routerLink]="['/hemen-al','araclar','biten']" queryParamsHandling="merge"
+                                    [ngClass]="tab === 'biten' ? 'active' : ''">
+                                    BİTEN HEMEN AL ARAÇLARI
+                                    <div class="triangle triangle-orange rotate45deg m-auto"></div>
+                                </a>
+                            </li>
+                            <li
+                                class="nav-item px-lg-0 col-1 col-xl-auto mr-0 mr-lg-2 text-right mb-lg-0 mb-n5 d-none d-lg-block">
+                                <a role="button" (click)="listeTipi = 'card'" [routerLink]=""
+                                    queryParamsHandling="merge" class="font-display-ultralg font-weight-bolder">
+                                    <span [ngClass]="listeTipi!=='card' ? 'gray-text' : ''">&#8284;</span>
+                                </a>
+                                <a role="button" (click)="listeTipi = 'liste'" [routerLink]=""
+                                    queryParamsHandling="merge" class="font-display-exlg d-none d-lg-inline-block">
+                                    <span [ngClass]="listeTipi!=='liste' ? 'gray-text' : ''">&#9776;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 hidden-sm">
+                    </div>
+                </div>
+                <ng-container *ngIf="aramaSonucu && aramaSonucu.length; else hazirlaniyor">
+                    <app-araclar-card *ngIf="listeTipi === 'card'" [aktifIhale]="tab==='aktif'?ihale:null"
+                        [araclar]="aramaSonucu"></app-araclar-card>
+                    <app-araclar-liste *ngIf="listeTipi === 'liste'" [aktifIhale]="tab==='aktif'?ihale:null"
+                        [araclar]="aramaSonucu"></app-araclar-liste>
+                </ng-container>
+                <ng-template #hazirlaniyor>
+                    <div class="text-center mt-3">
+                        <img src="/assets/img/static/arac-animated.gif" />
+                        <br />
+                        <h3>Hemen Al Araçları Çok Yakında!</h3><br />
+                        Dilerseniz <a [routerLink]="['/araclar','aktif']" class="orange-text">aktif ihale</a> ya da
+                        <a [routerLink]="['/araclar','biten']" class="orange-text">biten ihale</a> araçlarını
+                        inceleyebilirsiniz.
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

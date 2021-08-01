@@ -1,0 +1,17 @@
+<a *ngIf="!showWithText" class="grey-text font-display-exsm" [routerLink]="" queryParamsHandling="merge"
+    (click)="favoriEkleCikar()">
+    <svg-icon src="assets/img/fontawesome/star-regular.svg" class="icon-{{iconSize}}" *ngIf="!favoriIlanMi()">
+    </svg-icon>
+    <svg-icon src="assets/img/fontawesome/star-solid.svg" class="icon-{{iconSize}}" *ngIf="favoriIlanMi()">
+    </svg-icon>
+</a>
+<a *ngIf="showWithText" [routerLink]="" queryParamsHandling="merge" (click)="favoriEkleCikar()">
+    <ng-container *ngIf="!favoriIlanMi()">
+        <img class="icon-xs mt-n1" src="assets/img/fontawesome/star-regular.svg">
+        Favori Listeme Ekle
+    </ng-container>
+    <ng-container *ngIf="favoriIlanMi()">
+        <img class="icon-xs mt-n1" src="assets/img/fontawesome/star-solid.svg">
+        Favori Listemden Çıkar
+    </ng-container>
+</a>

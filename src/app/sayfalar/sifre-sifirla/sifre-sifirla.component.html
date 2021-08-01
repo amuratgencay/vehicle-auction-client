@@ -1,0 +1,54 @@
+<div class="container text-center max-width-700 nb-theme-default">
+    <div class="row d-flex-row px-5 pt-5 pb-2">
+        <div class="col-12">
+            <h4 class="pb-5 font-weight-medium">YENİ ŞİFRE OLUŞTUR</h4>
+        </div>
+        <div class="col-12" *ngIf="sonuc">
+            <ngb-alert [dismissible]="false" *ngIf="!sonuc.sonuc" type="danger">{{ sonuc.mesaj }}</ngb-alert>
+            <ngb-alert [dismissible]="false" *ngIf="sonuc.sonuc" type="success">{{ sonuc.mesaj }}
+            </ngb-alert>
+        </div>
+        <ng-container *ngIf="!sonuc?.sonuc">
+            <div class="col-12">
+                <form [formGroup]="form" novalidate="">
+
+                    <div class="col-sm-12 form-group">
+                        <input type="password" class="form-control" id="inputPassword1" formControlName="sifre"
+                            placeholder="Şifre"
+                            [ngClass]="{ 'is-invalid': form.get('sifre') &&form.get('sifre').errors }">
+                        <div *ngIf="form.get('sifre') && form.get('sifre').touched && form.get('sifre').errors"
+                            class="invalid-feedback">
+                            <small *ngIf="form.get('sifre').errors.required">Şifre
+                                zorunludur</small>
+                            <small *ngIf="form.get('sifre').errors.mustMatch">Şifreler aynı
+                                değil</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <input type="password" class="form-control" id="inputPassword2" formControlName="sifreTekrar"
+                            placeholder="Şifre (Tekrar)"
+                            [ngClass]="{ 'is-invalid': form.get('sifreTekrar') &&form.get('sifreTekrar').errors }">
+                        <div *ngIf="form.get('sifreTekrar') && form.get('sifreTekrar').touched && form.get('sifreTekrar').errors"
+                            class="invalid-feedback">
+                            <small *ngIf="form.get('sifreTekrar').errors.required">Şifre tekrarı
+                                zorunludur</small>
+                            <small *ngIf="form.get('sifreTekrar').errors.mustMatch">Şifreler aynı
+                                değil</small>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" (click)="kaydet()"
+                            class="btn rounded-0 orange-background white-text w-100">
+                            KAYDET
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </ng-container>
+        <button type="button" [disabled]="form.invalid" (click)="login()" *ngIf="sonuc && sonuc.sonuc"
+            class="btn rounded-0 orange-background white-text w-100">
+            GİRİŞ
+        </button>
+    </div>
+</div>

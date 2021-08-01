@@ -1,0 +1,59 @@
+.page-link{
+    cursor: pointer;
+}
+h5, figcaption {min-height: inherit !important; margin: 0;}
+
+.card {
+    &:hover {
+        -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+-moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.35);
+    }
+
+    &:hover .sag {
+        background: #f4f4f4;
+    }
+
+}
+
+.oklar {
+    background: none !important;
+    &:hover {
+        background: none !important;
+    }
+}
+
+.satildi {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 1;
+    width: 80%;
+  }
+  .satilmadi
+  {
+      display: none;
+      visibility: hidden;
+      width: 0px;
+      height: 0px;
+  }
+
+  .satilditxt {
+    position: absolute;
+    z-index: 300;
+    background: #343434a8;
+    font-size: 13px;
+    color: #f5f503;
+    bottom: 0;
+    padding: 2px 20px;
+    margin: 0 auto;
+    font-weight: 700;
+    min-height: inherit;
+    height: inherit;
+    top: inherit;
+    left: inherit;
+    text-align: center;
+    width: 97%;
+    margin-left: 4px;
+    margin-bottom: 4px;
+  }

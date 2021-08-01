@@ -1,0 +1,20 @@
+image: trion/ng-cli
+
+cache:
+  paths:
+    - node_modules/
+
+deploy_stage:
+  stage: deploy
+  environment: Stage
+  only:
+    - develop
+  script:
+    
+    - rm ./package-lock.json
+    - npm install
+    - ng version
+    - ng build --progress false --prod
+    - sudo apt-get update -qy
+    - sudo apt-get install -y lftp
+    # lftp -e "open ftp.mywebhost.com; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete local-folder/ destination-folder/; bye"

@@ -1,0 +1,91 @@
+.card {
+    background-color: transparent;
+    overflow: hidden;
+
+    &[class*="col-"] {
+        border: 0;
+    }
+
+
+    & .active .invisible {
+        visibility: visible !important;
+    }
+
+    & .active .visible {
+        visibility: hidden !important;
+        display: none;
+    }
+
+    &-big {
+        flex-direction: row;
+        overflow: hidden;
+        height: 520px;
+
+        &-vehicle {
+            height: auto;
+        }
+
+        & .embed-responsive {
+            /*height: 100%;
+            border-bottom: 10px solid $color-amec-light-to-mid-gray-two;*/
+        }
+
+        & .badge {
+            font-size: 175%;
+            right: -11%;
+            top: 4%;
+            height: auto;
+
+            &-f {
+                left: 0;
+                top: 30px;
+                right: unset;
+            }
+           /*  @include media-breakpoint-down(xs) {
+                top: 3% !important; 
+              } */
+        }
+
+        @include media-breakpoint-down(md) {
+            height: unset;
+        }
+    }
+
+    &-img-top {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+    }
+    &-title {
+        min-height: 68px;
+        line-clamp: 2;
+    }
+    & .figure-caption {
+        min-height: 48px;
+    }
+    &-body {
+        /*min-height: 230px;*/
+        
+        & .col-4.radius-10 {
+            flex: 0 0 30.33333%;
+            max-width: 30.33333%;
+
+            font-size: inherit;
+            font-weight: inherit;
+            color: inherit;
+
+            &:hover {
+                color: inital;
+            }
+
+            &.active {
+                background-color: $color-amec-orange-one;
+                color: white;
+            }
+
+            &.disabled {
+                opacity: 50%;
+            }
+        }
+    }
+}

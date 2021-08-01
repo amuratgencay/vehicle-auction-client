@@ -1,0 +1,247 @@
+<div class="container text-center max-width-700 nb-theme-default">
+    <div class="row d-flex-row px-5 pt-5 pb-2">
+        <div class="col-12">
+            <h2 class="orange-text">ÜYE OL</h2>
+        </div>
+        <div class="col-12">
+            İhalelere teklif verebilmek ve size özel ayrıcalıkların tamamından faydalanabilmek için lütfen
+            formu doldurun.
+            <br><br><br>
+        </div>
+        <div class="col-12">
+            <ngb-alert [dismissible]="false" *ngIf="hataMesaji" type="danger">{{ hataMesaji }}</ngb-alert>
+        </div>
+        <form [formGroup]="form" novalidate="">
+            <aw-wizard [navBarLayout]="'large-filled-symbols'" class="custom-step-css">
+
+                <aw-wizard-step stepTitle="ÜYELİK BİLGİLERİ" [navigationSymbol]="{ symbol: '1' }">
+                    <div [formGroup]="uyeKayitForm">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="text" class="form-control" id="name" formControlName="ad"
+                                    placeholder="Adınız"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['ad'] && uyeBilgiFormControls['ad'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['ad'] && uyeBilgiFormControls['ad'].touched && uyeBilgiFormControls['ad'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['ad'].errors.required">Ad zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="text" class="form-control" id="surname" formControlName="soyad"
+                                    placeholder="Soyadınız"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['soyad'] && uyeBilgiFormControls['soyad'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['soyad'] && uyeBilgiFormControls['soyad'].touched && uyeBilgiFormControls['soyad'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['soyad'].errors.required">Soyad
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="email" class="form-control" id="staticEmail1" formControlName="eposta"
+                                    placeholder="E-posta Adresiniz"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['eposta'] && uyeBilgiFormControls['eposta'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['eposta'] && uyeBilgiFormControls['eposta'].touched && uyeBilgiFormControls['eposta'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['eposta'].errors.taken">Eposta adresi zaten
+                                        kayıtlı.</small>
+                                    <small *ngIf="uyeBilgiFormControls['eposta'].errors.required">Eposta
+                                        zorunludur</small>
+                                    <small *ngIf="uyeBilgiFormControls['eposta'].errors.email">Eposta geçerli
+                                        değil</small>
+                                    <small *ngIf="uyeBilgiFormControls['eposta'].errors.mustMatch">Epostalar aynı
+                                        değil</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="email" class="form-control" id="staticEmail2"
+                                    formControlName="epostaTekrar" placeholder="E-posta Adresiniz (Tekrar)"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['epostaTekrar'] &&uyeBilgiFormControls['epostaTekrar'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['epostaTekrar'] && uyeBilgiFormControls['epostaTekrar'].touched && uyeBilgiFormControls['epostaTekrar'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['epostaTekrar'].errors.required">Eposta tekrarı
+                                        zorunludur</small>
+                                    <small *ngIf="uyeBilgiFormControls['epostaTekrar'].errors.email">Eposta tekrarı
+                                        geçerli değil</small>
+                                    <small *ngIf="uyeBilgiFormControls['epostaTekrar'].errors.mustMatch">Epostalar aynı
+                                        değil</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="password" class="form-control" id="inputPassword1" formControlName="sifre"
+                                    placeholder="Şifre"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['sifre'] &&uyeBilgiFormControls['sifre'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['sifre'] && uyeBilgiFormControls['sifre'].touched && uyeBilgiFormControls['sifre'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['sifre'].errors.required">Şifre
+                                        zorunludur</small>
+                                    <small *ngIf="uyeBilgiFormControls['sifre'].errors.mustMatch">Şifreler aynı
+                                        değil</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="password" class="form-control" id="inputPassword2"
+                                    formControlName="sifreTekrar" placeholder="Şifre (Tekrar)"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['sifreTekrar'] &&uyeBilgiFormControls['sifreTekrar'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['sifreTekrar'] && uyeBilgiFormControls['sifreTekrar'].touched && uyeBilgiFormControls['sifreTekrar'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['sifreTekrar'].errors.required">Şifre tekrarı
+                                        zorunludur</small>
+                                    <small *ngIf="uyeBilgiFormControls['sifreTekrar'].errors.mustMatch">Şifreler aynı
+                                        değil</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="tel" class="form-control" id="telefon" formControlName="telefon"
+                                    placeholder="Cep telefonunuz" prefix="+" mask="00(000) 000 00 00"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['telefon'] &&uyeBilgiFormControls['telefon'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['telefon'] && uyeBilgiFormControls['telefon'].touched && uyeBilgiFormControls['telefon'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['telefon'].errors.required">Telefon
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="text" class="form-control" id="tckimlikno" formControlName="tcKimlikNo"
+                                    placeholder="TC Kimlik No" maxlength="11"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['tcKimlikNo'] &&uyeBilgiFormControls['tcKimlikNo'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['tcKimlikNo'] && uyeBilgiFormControls['tcKimlikNo'].touched && uyeBilgiFormControls['tcKimlikNo'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['tcKimlikNo'].errors.taken">TC Kimlik No zaten
+                                        kayıtlı.</small>
+                                    <small *ngIf="uyeBilgiFormControls['tcKimlikNo'].errors.required">TC Kimlik No
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <select class="form-control" id="sehir" formControlName="sehirId" placeholder="Şehir"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['sehirId'] &&uyeBilgiFormControls['sehirId'].errors }">
+                                    <option *ngFor="let sehir of sehirler" [value]="sehir.id">{{sehir.ad}}</option>
+                                </select>
+                                <div *ngIf="uyeBilgiFormControls['sehirId'] && uyeBilgiFormControls['sehirId'].touched && uyeBilgiFormControls['sehirId'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['sehirId'].errors.required">Şehir
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group">
+                                <input type="address" class="form-control" id="adres" formControlName="adres"
+                                    placeholder="Adres"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['adres'] &&uyeBilgiFormControls['adres'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['adres'] && uyeBilgiFormControls['adres'].touched && uyeBilgiFormControls['adres'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['adres'].errors.required">Adres
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                                <input class="form-check-input" type="checkbox" formControlName="kurumsalUye"
+                                    id="kurumsalUye">
+                                <label class="form-check-label" for="kurumsalUye">
+                                    Kurumsal Üyelik </label>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group"
+                                *ngIf="uyeBilgiFormControls['kurumsalUye'] && uyeBilgiFormControls['kurumsalUye'].value">
+                                <input type="text" class="form-control" id="firmaAdi" formControlName="firmaAdi"
+                                    placeholder="Şirket Ünvanı (Vergi Dairesi Tam Ünvanı)"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['firmaAdi'] &&uyeBilgiFormControls['firmaAdi'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['firmaAdi'] && uyeBilgiFormControls['firmaAdi'].touched && uyeBilgiFormControls['firmaAdi'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['firmaAdi'].errors.required">Şirket Ünvanı
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group"
+                                *ngIf="uyeBilgiFormControls['kurumsalUye'] && uyeBilgiFormControls['kurumsalUye'].value">
+                                <input type="text" class="form-control" id="vergiDairesi" placeholder="Vergi Dairesi"
+                                    formControlName="vergiDairesi"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['vergiDairesi'] &&uyeBilgiFormControls['vergiDairesi'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['vergiDairesi'] && uyeBilgiFormControls['vergiDairesi'].touched && uyeBilgiFormControls['vergiDairesi'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['vergiDairesi'].errors.required">Vergi Dairesi
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 form-group"
+                                *ngIf="uyeBilgiFormControls['kurumsalUye'] && uyeBilgiFormControls['kurumsalUye'].value">
+                                <input type="text" class="form-control" id="vergiNumarasi" placeholder="Vergi Numarası"
+                                    formControlName="vergiNumarasi"
+                                    [ngClass]="{ 'is-invalid': uyeBilgiFormControls['vergiNumarasi'] &&uyeBilgiFormControls['vergiNumarasi'].errors }">
+                                <div *ngIf="uyeBilgiFormControls['vergiNumarasi'] && uyeBilgiFormControls['vergiNumarasi'].touched && uyeBilgiFormControls['vergiNumarasi'].errors"
+                                    class="invalid-feedback">
+                                    <small *ngIf="uyeBilgiFormControls['vergiNumarasi'].errors.required">Vergi Numarası
+                                        zorunludur</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group p-3">
+                                <input class="form-check-input mt-2" type="checkbox" value="" id="kampanyaIzin"
+                                    formControlName="kampanyaIzin">
+                                <label class="form-check-label" for="kampanyaIzin">
+                                    Ticari elektronik ileti almayı ve ticari iletişim kurulmasını kabul ediyorum.
+                                </label>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group font-display-exsm text-italic">
+                                Not: Ticari elektronik ileti almayı dilediğiniz zaman reddedebilirsiniz. Bunun için
+                                info@avec2el.com e-posta adresine bu talebinizi iletmeniz yeterli olacaktır.
+                                Talebiniz 3 iş günü içerisinde yerine getirilecektir.
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group pt-2">
+                                <button awNextStep type="button" [disabled]="uyeKayitForm.invalid"
+                                    class="btn rounded-0 orange-background white-text w-100">SONRAKİ</button>
+                            </div>
+                        </div>
+                    </div>
+                </aw-wizard-step>
+                <aw-wizard-step stepTitle="ÖN BİLGİLENDİRME" [navigationSymbol]="{ symbol: '2' }">
+                    <div [formGroup]="onBilgilendirmeForm">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group text-left mt-4 font-14" style="max-height: 400px;
+                            overflow: auto; " [innerHTML]="onBilgilendirmeFormu?.deger">
+
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                                <input class="form-check-input" type="checkbox" formControlName="onBilgilendirme"
+                                    id="onBilgilendirme">
+                                <label class="form-check-label mt-n2" for="onBilgilendirme">
+                                    Okudum, onaylıyorum. </label>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                                <div class="row form-group pt-2 px-3">
+                                    <button awPreviousStep type="button"
+                                        class="col btn rounded-0 gray-ultra-dark-background white-text w-100 mr-1">ÖNCEKİ</button>
+                                    <button [disabled]="onBilgilendirmeForm.invalid" awNextStep type="button"
+                                        class="col btn rounded-0 orange-background white-text w-100 ml-1">SONRAKİ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aw-wizard-step>
+                <aw-wizard-step stepTitle="ARAÇ SATIŞ SÖZLEŞMESİ" [navigationSymbol]="{ symbol: '3' }">
+                    <div [formGroup]="aracSatisSozlemesiForm">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group text-left mt-4 font-14" style="max-height: 400px;
+                            overflow: auto; " [innerHTML]="aracSatisSozlesmesi?.deger">
+
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                                <input class="form-check-input" type="checkbox" formControlName="aracSatisSozlemesi"
+                                    id="aracSatisSozlemesi">
+                                <label class="form-check-label mt-n2" for="aracSatisSozlemesi">
+                                    Okudum, onaylıyorum. </label>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                                <div class="row form-group pt-2 px-3">
+                                    <button type="button" awPreviousStep
+                                        class="col btn rounded-0 gray-ultra-dark-background white-text w-100 mr-1">ÖNCEKİ</button>
+                                    <button type="button" (click)="kaydet()" [disabled]="form.invalid"
+                                        class="col btn rounded-0 orange-background white-text w-100 ml-1">KAYDOL</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aw-wizard-step>
+            </aw-wizard>
+        </form>
+    </div>
+</div>

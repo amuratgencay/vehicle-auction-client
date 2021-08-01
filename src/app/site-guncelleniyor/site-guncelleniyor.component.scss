@@ -1,0 +1,19 @@
+.bottomfix {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}
+.m0-a {margin: 0 auto;}
+.logo {width: 220px;}
+
+@media (min-width: 575.98px) {
+    .ustlogo {
+        margin-top: 10% !important;
+    }
+    .progressbar {
+        margin-top: 4% !important;
+        margin-bottom: 2% !important;
+    }
+}

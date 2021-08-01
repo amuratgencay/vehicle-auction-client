@@ -1,0 +1,109 @@
+<div class="table-responsive gray-text pt-3 table-bordered ">
+    <table class="table table-bordered text-center font-display-11px" [ngClass]="striped?'table-striped':''">
+        <thead>
+            <tr class="orange-background white-text mb-4">
+                <th scope="col" class="font-weight-light" style="cursor: pointer;" *ngFor="let column of columns"
+                    (click)="siralamaDegistir(column.field)">
+                    {{column.title}}
+                    <i class="fa fa-chevron-up" *ngIf="order.key == column.field && !order.reverse"
+                        aria-hidden="true"></i>
+                    <i class="fa fa-chevron-down" *ngIf="order.key == column.field && order.reverse"
+                        aria-hidden="true"></i>
+                </th>
+                <th *ngIf="actions && actions.length">
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data|paginate:sayfalama|orderBy:order.key:order.reverse">
+                <ng-container [ngSwitch]="col.type" *ngFor="let col of columns">
+                    <td [class]="col.cellClass" *ngSwitchCase="'date'">
+                        <span [ngClass]="row.detailLink && row.detailLink.length ? 'span-like-a' : ''"
+                            (click)="row.detailLink && row.detailLink.length && cellClick(row.detailLink)">{{row[col.field]|date:col.format?col.format:'dd.MM.yyyy'}}</span>
+                    </td>
+                    <td [class]="col.cellClass" *ngSwitchCase="'currency'">
+                        <span [ngClass]="row.detailLink && row.detailLink.length ? 'span-like-a' : ''"
+                            (click)="row.detailLink && row.detailLink.length && cellClick(row.detailLink)">{{row[col.field]|numberTrFormat}}
+                            ₺</span></td>
+                    <td [class]="col.cellClass" *ngSwitchCase="'number'">
+                        <span [ngClass]="row.detailLink && row.detailLink.length ? 'span-like-a' : ''"
+                            (click)="row.detailLink && row.detailLink.length && cellClick(row.detailLink)">{{row[col.field]|numberTrFormat}}</span>
+                    </td>
+                    <td [class]="col.cellClass" *ngSwitchCase="'info'">
+                        <i class="fa fa-info" style="cursor: pointer;"
+                            [ngbTooltip]="col.getMessage(row)"></i>
+                    </td>
+                    <td [class]="col.cellClass" *ngSwitchDefault> <span
+                            [ngClass]="row.detailLink && row.detailLink.length ? 'span-like-a' : ''"
+                            (click)="row.detailLink && row.detailLink.length && cellClick(row.detailLink)">{{row[col.field]}}</span>
+                    </td>
+                </ng-container>
+                <td *ngIf="actions && actions.length">
+                    <ng-container *ngFor="let act of actions">
+                        <button *ngIf="act.show(row)" (click)="rowActionClicked.emit({action:act,row:row})"
+                            class="btn gray-text p-0 ml-auto float-right font-display-exsm">
+                            <svg-icon *ngIf="act.svgIcon" [src]="act.svgIcon">
+                            </svg-icon>
+                            <br>
+                            {{act.text}}
+                        </button>
+                    </ng-container>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<pagination-template #p="paginationApi" (pageChange)="sayfalama.currentPage = $event">
+    <div
+        class="d-flex flex-md-row flex-column w-100 justify-content-around ultra-dark-gray-text border-top font-display-sm">
+        <div class="col-auto mx-auto mr-md-auto ml-md-0 text-left p-3 px-0">
+            {{sayfalama.itemsPerPage > sayfalama.totalItems ? sayfalama.totalItems : sayfalama.itemsPerPage}} Araç
+            Görüntüleniyor / {{sayfalama.totalItems}} Araç içinde
+        </div>
+        <div class="col-auto mx-auto ml-md-auto mr-md-0 mr-lg-0 mb-md-0 mb-n5 p-0 text-center">
+            <nav aria-label="Pagination navigation">
+                <ul class="pagination pagination-md small mb-0 mt-3 justify-content-center">
+                    <li class="page-item" [class.disabled]="p.isFirstPage()">
+                        <a class="page-link border-0" (click)="p.previous()" aria-label="Previous">
+                            <span aria-hidden="true">‹</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item" [class.active]="p.getCurrent() === page.value" *ngFor="let page of p.pages">
+                        <a class="page-link border-0" (click)="p.setCurrent(page.value)">{{ page.label }}</a>
+                    </li>
+                    <li class="page-item" [class.disabled]="p.isLastPage()">
+                        <a class="page-link border-0" (click)="p.next()" aria-label="Next">
+                            <span aria-hidden="true">›</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column w-100 ultra-dark-gray-text font-display-sm align-items-center mb-3">
+        <div class="col-md-auto col-12 text-center text-md-left mt-5 mt-md-0 p-md-3 px-0">
+            Her Sayfada
+        </div>
+        <div class="text-center p-0">
+            <nav aria-label="Pagination navigation">
+                <ul class="pagination pagination-md square mb-0 mt-3">
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 9"><a
+                            class="page-link border-0 mr-2" (click)="sayfalama.itemsPerPage = 9">9</a></li>
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 18"><a
+                            class="page-link border-0 mr-2 gray-mid-background"
+                            (click)="sayfalama.itemsPerPage = 18">18</a></li>
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 27"><a
+                            class="page-link border-0 mr-2 gray-mid-background"
+                            (click)="sayfalama.itemsPerPage = 27">27</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-auto text-left p-3 px-0">
+            Sonuç Göster
+        </div>
+    </div>
+</pagination-template>

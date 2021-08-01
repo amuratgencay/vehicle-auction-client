@@ -1,0 +1,113 @@
+<div class="modal-content p-3 overflow-hidden">
+    <div class="d-block w-100 p-2 orange-background text-center white-text position-absolute fixed-top">
+        <h2>Bakiye Yükle</h2>
+    </div>
+    <button type="button" (click)="modal.close()" data-dismiss="modal" aria-label="Close"
+        class="close position-absolute fixed-top fixed-right d-block pr-2">
+        <span aria-hidden="true" class="font-display-ultralg white-text">&times;</span>
+    </button>
+    <div class="modal-header text-center position-relative d-flex flex-row pt-5 mt-2">
+        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+            class="icon-lg mt-2">
+            <path fill="black"
+                d="M0 432c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V256H0v176zm192-68c0-6.6 5.4-12 12-12h136c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-40zm-128 0c0-6.6 5.4-12 12-12h72c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM576 80v48H0V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48z"
+                class=""></path>
+        </svg>
+        <div class="font-display-sm text-left mr-auto ml-4 mt-2">
+            Sadece kredi kartı ödeme kabul edilmektedir.
+            <br>
+            Banka kartları (debit card) ile ödeme yapılamamaktadır.
+        </div>
+    </div>
+    <div class="modal-body px-0">
+        <div class="row" *ngIf="enrollmentResult">
+            <div class="col">
+                <div class="alert alert-danger">
+                    {{enrollmentResult}}
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="form" novalidate="">
+            <ng-container [formGroup]="form.get('creditCard')">
+                <div class="form-group">
+                    <label for="name" class="col-12">AD SOYAD*</label>
+                    <div class="col-12">
+                        <input type="text" class="form-control form-control-lg" id="name"
+                            formControlName="cardHolderName"
+                            [ngClass]="{ 'is-invalid': fCreditCard['cardHolderName'] && fCreditCard['cardHolderName'].errors }">
+                        <div *ngIf="fCreditCard['cardHolderName'] && fCreditCard['cardHolderName'].touched && fCreditCard['cardHolderName'].errors"
+                            class="invalid-feedback">
+                            <small *ngIf="fCreditCard['cardHolderName'].errors.required">Ad zorunludur</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pan1" class="col-12">KREDİ KARTI NUMARASI*</label>
+                    <div class="col-12 d-flex flex-row">
+                        <input type="text" class="form-control form-control-lg col mr-2" maxlength="4" #pan1
+                            [ngClass]="{ 'is-invalid': fCreditCard['pan'] && fCreditCard['pan'].errors }"
+                            formControlName="pan1" id="pan1" aria-required="true" />
+                        <input type="text" class="form-control form-control-lg col mr-2" maxlength="4" #pan2
+                            [ngClass]="{ 'is-invalid': fCreditCard['pan'] && fCreditCard['pan'].errors }"
+                            formControlName="pan2" id="pan2" aria-required="true" />
+                        <input type="text" class="form-control form-control-lg col mr-2" maxlength="4" #pan3
+                            [ngClass]="{ 'is-invalid': fCreditCard['pan'] && fCreditCard['pan'].errors }"
+                            formControlName="pan3" id="pan3" aria-required="true" />
+                        <input type="text" class="form-control form-control-lg col" id="pan4" maxlength="4" #pan4
+                            [ngClass]="{ 'is-invalid': fCreditCard['pan'] && fCreditCard['pan'].errors }"
+                            formControlName="pan4" aria-required="true" />
+                        <div *ngIf="fCreditCard['pan'] && fCreditCard['pan'].touched && fCreditCard['pan'].errors"
+                            class="invalid-feedback">
+                            <small *ngIf="fCreditCard['pan']?.errors?.validCreditCardNumber">Geçersiz Kredi
+                                Kartı</small>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group d-flex flex-row">
+                    <div class="col-7 mr-auto p-0">
+                        <label for="expiryMonth" class="col-12">SON KULLANMA TARİHİ*</label>
+                        <div class="col-12 d-flex flex-row">
+                            <input type="text" class="form-control form-control-lg col mr-2" #expiryMonth maxlength="2"
+                                id="expiryMonth" placeholder="AA" formControlName="expiryMonth" aria-required="true" />
+                            <input type="text" class="form-control form-control-lg col mr-2" #expiryYear maxlength="2"
+                                id="expiryYear" placeholder="YY" formControlName="expiryYear" aria-required="true" />
+                        </div>
+                    </div>
+                    <div class="col-4 ml-auto">
+                        <label for="cvv" class="col-12">CVC2*</label>
+                        <div class="col-12 d-flex flex-row">
+                            <input type="text" class="form-control form-control-lg col ml-2" #cvv maxlength="4" id="cvv"
+                                formControlName="cvv" aria-required="true" />
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="form-group">
+                <label for="purchaseAmount" class="col-12">YÜKLENECEK BAKİYE TUTARI*</label>
+                <div class="col-12">
+                    <input type="text" class="form-control form-control-lg" id="purchaseAmount"
+                        formControlName="purchaseAmount" aria-required="true">
+                </div>
+            </div>
+            <div class="form-group d-flex flex-row p-3">
+                <input class="m-0 mt-1" type="checkbox" id="kabul-ediyorum" formControlName="onay" />
+                <div class="col font-display-exsm">
+                    <strong>6698 sayılı Kanun Düzenlemesi Uyarınca kişisel verilerimin nasıl korunacağına ve
+                        işlenecğeine dair aydınlatma metni ile tarafından aydınlatıldım ve kişisel verilerimin
+                        bu kapsamda işlenmesi ve korunması ile 6563 sayılı kanun kapsamında tarafıma ticari
+                        elektronik ileti gönderilmesine onay veriyorum.*</strong>
+                    <p></p>
+                    Vermiş olduğum kredi kartı bilgilerinin doğruluğunu teyit eder, belirtilen tutarın sözleşme
+                    hükümleri kapsamında, kredi kartımdan bloke/tahsil edilmesini kabul ederim.
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer justify-content-center">
+        <button type="button" (click)="yukle()" [disabled]="form.invalid"
+            class="btn rounded-0 green-background white-text w-100 mx-5 pt-2 pb-2">
+            GÖNDER
+        </button>
+    </div>
+</div>

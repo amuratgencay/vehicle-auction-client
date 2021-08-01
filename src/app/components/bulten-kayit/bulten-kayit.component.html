@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row pt-5 pb-5">
+        <div class="col-12 col-md-2 border-right p-lg-3">
+            <a href="/" class="d-inline-block mb-5 mb-lg-0">
+                <img rel="Avec Logo" class="avec-logo img-responsive m-auto" src="assets/img/svg-logos/avec_ikinciel_logo.svg" />
+            </a> </div>
+        <div class="col-lg-4 col-md-10 col-sm-10 border-lg-right px-lg-5 pt-lg-3 flex-row">
+            <span class="font-weight-bold font-display-md dark-grey-text row">
+                E-Bülten'e Kaydol!
+            </span>
+            <span class="font-weight-bold font-display-sm grey-text row pt-2">
+                Bizden haberler için mail adresinizi bırakın!
+            </span>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="form.valid && kaydet()"
+            class="form-inline col-lg-6 col-12 d-flex justify-content-around p-lg-0 pt-md-3 pt-3 pt-lg-0 px-0">
+            <div class="input-group row col-12 px-lg-2 px-0">
+                <input type="email" placeholder="E-Posta Adresinizi Giriniz" class="form-control form-control-lg" id="eposta"
+                    formControlName="eposta" [ngClass]="{ 'is-invalid': f['eposta'] && f['eposta'].errors && f['eposta'].touched }">
+                <div *ngIf="f['eposta'] && f['eposta'].touched && f['eposta'].errors" class="invalid-feedback">
+                    <small *ngIf="f['eposta'].errors.email">E-Posta geçerli değil</small>
+                </div>
+                <div *ngIf="f['eposta'] && f['eposta'].touched && f['eposta'].errors" class="invalid-feedback">
+                    <small *ngIf="f['eposta'].errors.required">E-Posta giriniz</small>
+                </div>
+                <button [disabled]="f['eposta'].touched && form.invalid" type="submit" class="btn orange-background white-text font-weight-bold font-display-md">
+                    Gönder
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

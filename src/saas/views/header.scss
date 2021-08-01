@@ -1,0 +1,9 @@
+@import '../components/navbar';
+
+header { 
+    border-bottom:2px solid $color-amec-orange-one;
+    &   .social-media-brand-link{
+      height: 12.5px;
+      width: auto;
+    }
+}

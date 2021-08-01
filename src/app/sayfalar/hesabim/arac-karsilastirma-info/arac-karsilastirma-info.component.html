@@ -1,0 +1,14 @@
+<div *ngIf="secilenAraclar && secilenAraclar.length>1"
+    class="row fixed-bottom sticky orange-background p-2 justify-content-center align-items-center align-content-center">
+    <span class="col-8 col-lg-22d22 font-display-exsm text-center p-2 pr-0 pl-5 m-2 m-lg-0">
+        Karşılaştırma Listende {{secilenAraclar.length}} araç bulunmakta.
+    </span>
+    <button  (click)="karsilastir()"
+        class="col-8 col-lg-22d22 btn rounded-pill white-background p-2 mb-3 mb-lg-0 dark-gray-text">
+        ŞEÇİLENLERİ KARŞILAŞTIR
+    </button>
+    <a role="button" [routerLink]="" queryParamsHandling="merge" (click)="temizle()"
+        class="col-8 col-lg-22d22 btn rounded-pill white-background p-2 mb-3 mb-lg-0 ml-0 ml-lg-4 opacity-0d75">
+        TÜMÜNÜ TEMİZLE
+    </a>
+</div>

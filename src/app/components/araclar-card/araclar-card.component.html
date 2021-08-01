@@ -1,0 +1,121 @@
+<div class="d-flex flex-xl-row flex-lg-row flex-column-reverse text-left font-display-sm mt-xl-0 mt-lg-4 w-100 pb-3">
+    <div class="mr-lg-auto gray-mid-background rounded p-1 px-3" *ngIf="aktifIhale">
+        {{aktifIhale.baslik}} Başlangıç Zamanı
+        <div class="w-100 orange-text mt-n1">
+            {{aktifIhale.baslangicTarihi |date:'dd.MM.yyyy HH:mm'}}
+            <ng-container *ngIf="aktifIhale.bitisTarihi"> -
+                {{aktifIhale.bitisTarihi |date:'dd.MM.yyyy HH:mm'}}</ng-container>
+        </div>
+    </div>
+    <div class="ml-lg-auto ml-lg-4 mb-lg-0 mb-5 d-flex flex-row">
+        <a [routerLink]="" queryParamsHandling="merge" (click)="siralamaDegistir('baslangicFiyati')" role="button"
+            class="ml-3 text-right d-flex flex-row">
+            Açılış Fiyatı
+            <div class="d-flex flex-column ml-1 mt-1">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs">
+                    <path [attr.fill]="order.key === 'baslangicFiyati' && order.reverse ? '#e84c0f' : '#8a8a89'"
+                        d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+                    </path>
+                </svg>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs mt-n1">
+                    <path [attr.fill]="order.key === 'baslangicFiyati' && !order.reverse ? '#e84c0f' : '#8a8a89'" d=" M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569
+                        0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224
+                        284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373
+                        24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+                    </path>
+                </svg>
+            </div>
+        </a>
+        <a [routerLink]="" queryParamsHandling="merge" (click)="siralamaDegistir('aracSonKm')" role="button"
+            class="ml-3 text-right d-flex flex-row">
+            Km
+            <div class="d-flex flex-column ml-1 mt-1">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs">
+                    <path [attr.fill]="order.key === 'aracSonKm' && order.reverse ? '#e84c0f' : '#8a8a89'"
+                        d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+                    </path>
+                </svg>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs mt-n1">
+                    <path [attr.fill]="order.key === 'aracSonKm' && !order.reverse ? '#e84c0f' : '#8a8a89'"
+                        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+                    </path>
+                </svg>
+            </div>
+        </a>
+        <a [routerLink]="" queryParamsHandling="merge" (click)="siralamaDegistir('aracYili')" role="button"
+            class="ml-3 text-right d-flex flex-row">
+            Yıl
+            <div class="d-flex flex-column ml-1 mt-1">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs">
+                    <path [attr.fill]="order.key === 'aracYili' && order.reverse ? '#e84c0f' : '#8a8a89'"
+                        d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+                    </path>
+                </svg>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon-exs mt-n1">
+                    <path [attr.fill]="order.key === 'aracYili' && !order.reverse ? '#e84c0f' : '#8a8a89'"
+                        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+                    </path>
+                </svg>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 pb-4 listeleme"
+        *ngFor="let arac of araclar|orderBy:order.key:order.reverse|paginate:sayfalama">
+        <app-arac-card [arac]="arac" class="card-sec">
+        </app-arac-card>
+    </div>
+</div>
+<pagination-template #p="paginationApi" (pageChange)="sayfaDegisti($event)">
+    <div
+        class="d-flex flex-md-row flex-column w-100 justify-content-around ultra-dark-gray-text border-top font-display-sm">
+        <div class="col-auto mx-auto mr-md-auto ml-md-0 text-left p-3 px-0">
+            {{sayfalama.itemsPerPage > sayfalama.totalItems ? sayfalama.totalItems : sayfalama.itemsPerPage}} Araç
+            Görüntüleniyor / {{sayfalama.totalItems}} Araç içinde
+        </div>
+        <div class="col-auto mx-auto ml-md-auto mr-md-0 mr-lg-0 mb-md-0 mb-n5 p-0 text-center">
+            <nav aria-label="Pagination navigation">
+                <ul class="pagination pagination-md small mb-0 mt-3 justify-content-center">
+                    <li class="page-item" [class.disabled]="p.isFirstPage()">
+                        <a class="page-link border-0 oklar" (click)="p.previous()" aria-label="Previous">
+                            <span aria-hidden="true">‹</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item" [class.active]="p.getCurrent() === page.value" *ngFor="let page of p.pages">
+                        <a class="page-link border-0" (click)="p.setCurrent(page.value)">{{ page.label }}</a>
+                    </li>
+                    <li class="page-item" [class.disabled]="p.isLastPage()">
+                        <a class="page-link border-0 oklar" (click)="p.next()" aria-label="Next">
+                            <span aria-hidden="true">›</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column w-100 ultra-dark-gray-text font-display-sm align-items-center mb-3">
+        <div class="col-md-auto col-12 text-center text-md-left mt-5 mt-md-0 p-md-3 px-0">
+            Her Sayfada
+        </div>
+        <div class="text-center p-0">
+            <nav aria-label="Pagination navigation">
+                <ul class="pagination pagination-md square mb-0">
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 9"><a
+                            class="page-link border-0 mr-2" (click)="sayfalama.itemsPerPage = 9">9</a></li>
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 18"><a
+                            class="page-link border-0 mr-2 gray-mid-background"
+                            (click)="sayfalama.itemsPerPage = 18">18</a></li>
+                    <li class="page-item" [class.active]="sayfalama.itemsPerPage === 27"><a
+                            class="page-link border-0 mr-2 gray-mid-background"
+                            (click)="sayfalama.itemsPerPage = 27">27</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-auto text-left p-3 px-0">
+            Sonuç Göster
+        </div>
+    </div>
+</pagination-template>

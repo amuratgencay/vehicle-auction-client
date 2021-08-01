@@ -1,0 +1,206 @@
+<header class="container-fluid border-bottom-avec-orange mb-3 mt-lg-0 mt-2" #header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container position-relative">
+      <div class="row search-solid d-flex" [ngClass]="isSearchCollapsed?'in':''" [isAnimated]="true" id="collapseSrc"
+        [collapse]="isSearchCollapsed" [attr.aria-expanded]="!isSearchCollapsed">
+        <div class="col-12 width autoh collapse position-relative" [ngClass]="isSearchCollapsed?'in':''"
+          [isAnimated]="true" id="collapseSrc" [collapse]="isSearchCollapsed" [attr.aria-expanded]="!isSearchCollapsed">
+          <input type="search" id="searchinput" class="form-group form-control" placeholder="Ara"
+            [(ngModel)]="searchText" (keyup)="searchChange.next($event)" />
+          <a [attr.aria-expanded]="!isSearchCollapsed" aria-controls="collapseSrc" class="collapsed closeIt"
+            target="_self">
+            <div type="button" class="close" aria-label="Close" (click)="isSearchCollapsed = !isSearchCollapsed">
+              <span aria-hidden="true font-ultra-dark-grey font-display-lg">&times;</span>
+            </div>
+          </a>
+
+          <div class="collapse position-relative" [ngClass]="isSearchCollapsed?'in':''" [isAnimated]="true"
+            id="collapseSrc" [collapse]="isSearchCollapsed" [attr.aria-expanded]="!isSearchCollapsed">
+            <ul class="scroll row">
+              <li class="float-left col-12" *ngFor="let arac of aramaSonucu|filterBy:{aracAracAdi:searchText}">
+                <a [routerLink]="['/ihale',arac.ihaleBilgisiId,'arac-detay', arac.id, arac.aracSeoUrl]"><span
+                    class="float-left col-7" innerHTML="{{arac.aracAracVersionModelMarkaAd | highlight:searchText | uppercase}}
+                    {{arac.aracAracVersionModelAd | highlight:searchText | uppercase }}"></span>
+                  <b class="float-right text-right col-5">{{arac.baslangicFiyati |numberTrFormat}}₺</b></a>
+              </li>
+            </ul>
+            <a [routerLink]="['araclar','aktif']" class="btn">Tüm Sonuçlar</a>
+            <span class="sayi">{{(aramaSonucu|filterBy:{aracAracAdi:searchText})?.length}} Araç Bulunmuştur</span>
+          </div>
+
+        </div>
+        <a class="nav-link collapsed search mr-lg-0 mr-4" (click)="isSearchCollapsed = !isSearchCollapsed"
+          [attr.aria-expanded]="!isSearchCollapsed" aria-controls="collapseSrc" target="_self" alt="Araç Ara" title="Araç Ara" style="cursor: pointer;">
+          
+          <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+          <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon-md">
+            <path fill="#2f2e2f"
+              d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"
+              class=""></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="non-collapsed-items text-center d-flex d-lg-none d-xl-none row">
+      <a href="/" target="_top">
+        <img rel="Avec Logo" class="avec-logo m-auto" src="assets/img/svg-logos/avec_ikinciel_logo.svg" />
+      </a>
+      <button class="navbar-toggler collapsed transparent border-0 float-left mt-1" type="button"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <img class="icon-xs" src="assets/img/fontawesome/bars-solid.svg" />
+        <span aria-hidden="true" class="close position-absolute fixed top">&times;</span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse row position-relative" [ngbCollapse]="isNavbarCollapsed" id="navbarsDefault">
+      <div class="container-fluid navbar-social-profil gray-light-background">
+        <div class="social container w-100 px-0 mt-1 position-relative">
+          <div class="col-lg-22d22 col-sm-12 pl-0 pr-3 font-display-exsm">
+            <a href="{{facebook?.deger|removeHtmlTags}}" target="_blank">
+              <img class="icon-xs mr-2" src="assets/img/fontawesome/facebook-f-brands.svg" />
+            </a>
+            <a href="{{twitter?.deger|removeHtmlTags}}" target="_blank">
+              <img class="icon-xs mr-2" src="assets/img/fontawesome/twitter-brands.svg" />
+            </a>
+            <a href="{{instagram?.deger|removeHtmlTags}}" target="_blank">
+              <img class="icon-xs mr-2" src="assets/img/fontawesome/instagram-brands.svg" />
+            </a>
+            <a href="{{youtube?.deger|removeHtmlTags}}" target="_blank mr-2">
+              <img class="icon-xs mr-2" src="assets/img/fontawesome/youtube-brands.svg" />
+            </a>
+            <a href="{{linkedin?.deger|removeHtmlTags}}" target="_blank mr-2">
+              <img class="icon-xs mr-2" src="assets/img/fontawesome/linkedin-in-brands.svg" />
+            </a>
+            <span class="float-right px-0 lang">
+              <a href="#" target="_blank" class="mr-2 active">TR</a>
+              <span class="ayrac">|</span>
+              <a href="#" target="_blank" class="ml-2">EN</a>
+            </span>
+          </div>
+          <div class="text-right profile d-flex w-auto mt-n1 fixed-right" *ngIf="!isAuth">
+            <a role="button" [routerLink]="['/uye-kayit']" class="btn p-0 mx-2 px-1 dropdown-toggle position-relative">
+              <img class="icon-xs pr-1" src="assets/img/fontawesome/user-regular.svg" />
+              Üye ol
+            </a>
+            <span class="p-0">|</span>
+            <div role="button" class="btn p-0 ml-2 pl-1 pr-0 mr-0 dropdown-toggle position-relative" (click)="login()">
+              Üye Girişi
+            </div>
+          </div>
+          <div dropdown class="text-right profile d-flex w-auto mt-n1 fixed-right hover-text" *ngIf="isAuth">
+            <div role="button" class="btn px-1 pt-0 mt-0 dropdown-toggle position-relative " aria-haspopup="true"
+              aria-expanded="false" dropdownToggle  alt="Hesabım" title="Hesabım" style="cursor: pointer;">
+              <svg-icon src="/assets/img/fontawesome/user-regular.svg" class="mr-1"></svg-icon>
+              <b>Hesabım :</b> {{user.email}}
+              <img _ngcontent-akm-c2="" class="icon-xs angle-down" src="">
+            </div>
+            <ul *dropdownMenu class="dropdown-menu">
+              <li><a class="dropdown-item pb-2" [routerLink]="['/hesabim']">
+                  Hesabım
+                </a></li>
+
+              <li><a class="dropdown-item pb-2" [routerLink]="['/hesabim','uyelik-bilgilerim']">
+                  Üyelik Bilgilerim
+                </a></li>
+
+              <li><a class="dropdown-item pb-2" [routerLink]="['/hesabim','katildigim-ihaleler']">
+                  Katıldığım İhaleler
+                </a></li>
+
+              <li> <a class="dropdown-item pb-2" [routerLink]="['/hesabim','kazandigim-ihaleler']">
+                  Kazandığım İhaleler
+                </a></li>
+
+              <li><a class="dropdown-item pb-2" [routerLink]="['/hesabim','hemen-aldiklarim']">
+                  Hemen Aldıklarım
+                </a></li>
+
+              <li><a class="dropdown-item pb-2" [routerLink]="['/hesabim','favori-ilanlarim']">
+                  Favori ilanlarım
+                </a></li>
+
+              <li><a class="dropdown-item pb-2 orange-text" [routerLink]="['/hesabim','elit-uyelik-gecis']">
+                  <b>Elit Üyelik Geçiş</b>
+                </a></li>
+
+              <li> <a class="dropdown-item pb-2" routerLink="" (click)="cikis()">
+                  Güvenli Çıkış
+                  <svg-icon src="/assets/img/fontawesome/sign-out-alt.svg" [svgStyle]="{fill:'#ffa178'}" class="cikis"></svg-icon>
+                </a></li>
+
+            </ul>
+            <span class="ayrac">|</span>
+            <a role="button" class="btn ml-2 mr-2 pl-1 pr-0 mr-0 mt-0 pt-0 dropdown-toggle position-relative"
+              [routerLink]="['/hesabim','favori-ilanlarim']" alt="Favori ilanlarım" title="Favori ilanlarım">
+              <img class="fav-icon icon-xs mt-n1 rounded-circle" src="/assets/img/fontawesome/star-solid.svg" alt="Favori ilanlarım" title="Favori ilanlarım"/>
+            </a>
+            <span class="ayrac">|</span>
+            <a role="button" *ngIf="uyeBilgi?.uyelikTipi === 0" style="cursor: pointer;"
+              class="btn ml-2 pl-1 pr-0 mr-0 mt-0 pt-0 dropdown-toggle position-relative" (click)="bakiyeYukle()" alt="Bakiye Yükle" title="Bakiye Yükle">
+              Bakiye:
+              <span class="orange-text"><b>{{uyeBilgi?.bakiye|numberTrFormat}} ₺</b></span>
+              <span class="font-weight-bold pl-1">+</span>
+            </a>
+            <span *ngIf="uyeBilgi?.uyelikTipi === 1"
+              class="btn ml-2 pl-1 pr-0 mr-0 mt-0 pt-0 dropdown-toggle position-relative orange-text">
+              <svg-icon src="/assets/special/elit-uye.svg" [svgStyle]="{fill:'#ffa178'}">
+              </svg-icon>
+              Elit Üye
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="container menu">
+        <div class="col-12 pt-2 pb-2">
+          <a [routerLink]="['/']" class="col-sm-12 col-lg-22d22 avec-logo-container px-0" target="_top">
+            <img rel="Avec Logo" class="avec-logo pt-2 pb-2" src="/assets/img/svg-logos/avec_ikinciel_logo.svg" />
+          </a>
+          <div class="col-sm-12 col-lg-77d78 float-lg-right text-right pl-4 pr-3 d-flex justify-content-center mt-3">
+            <ul class="navbar nav nav-pills w-100">
+              <li class="nav-item">
+                <a class="nav-link" (mouseover)="hover='hemen-al'" (mouseleave)="hover=''"
+                  [ngClass]="hover==='hemen-al' ? 'active white-text orange-background rounded-pill' : ''"
+                  [routerLink]="['/hemen-al','araclar','aktif']">Hemen Al</a>
+              </li>
+              <li class="nav-item" dropdown>
+                <a class="nav-link dropdown-toggle d-flex" (mouseover)="hover='araclar'" (mouseleave)="hover=''"
+                  [ngClass]="hover==='araclar' ? 'active white-text orange-background rounded-pill ' : ''"
+                  dropdownToggle [routerLink]="" queryParamsHandling="merge" role="button" aria-haspopup="true"
+                  aria-expanded="false">
+                  Araçlar
+                  <img class="icon-xs" src="/assets/img/fontawesome/angle-down-solid.svg" />
+                </a>
+                <div class="dropdown-menu" *dropdownMenu>
+                  <a class="dropdown-item" [routerLink]="['/araclar','aktif']">Aktif İhale Araçları</a>
+                  <a class="dropdown-item" [routerLink]="['/araclar','biten']">Biten İhale Araçları</a>
+                </div>
+              </li>
+              <li class="nav-item" dropdown *ngFor="let menu of menuler">
+                <a class="nav-link dropdown-toggle d-flex" (mouseover)="hover=menu.kod" (mouseleave)="hover=''"
+                  [ngClass]="hover===menu.kod ? 'active white-text orange-background rounded-pill ' : ''" dropdownToggle
+                  role="button" queryParamsHandling="merge" aria-haspopup="true" aria-expanded="false"
+                  [routerLink]="menu.altKategoriler && menu.altKategoriler.length ? []:['/icerik', menu.kod]">
+                  {{menu.gorunurMetin}}
+                  <img class="icon-xs" *ngIf="menu.altKategoriler && menu.altKategoriler.length"
+                    src="/assets/img/fontawesome/angle-down-solid.svg" />
+                </a>
+                <ng-container *ngIf="menu.altKategoriler && menu.altKategoriler.length">
+                  <div class="dropdown-menu" *dropdownMenu>
+                    <ng-container *ngFor="let altMenu of menu.altKategoriler">
+                      <a class="dropdown-item" [routerLink]="['/icerik', altMenu.kod]">{{altMenu.gorunurMetin}}</a>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (mouseover)="hover='iletisim'" (mouseleave)="hover=''"
+                  [ngClass]="hover==='iletisim' ? 'active white-text orange-background rounded-pill' : ''"
+                  [routerLink]="['/iletisim']" [routerLinkActive]="'active white-text orange-background rounded-pill'">İletişim</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

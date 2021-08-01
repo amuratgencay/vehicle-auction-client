@@ -1,0 +1,106 @@
+<div class="row card-big mt-5 mb-5 px-lg-0" *ngIf="firsatAraci">
+    <div class="col-lg-7 col-12 px-0 overflow-hidden">
+
+        <div class=" embed-responsive embed-responsive-4by3  overflow-hidden" style="cursor: pointer;"
+            [routerLink]="ihaleAktif  ? ['/ihale',ihaleAktif.id,'arac-detay',firsatAraci.id,firsatAraci.aracSeoUrl] : ['ihale',enYakinIhale.id,'arac-detay', firsatAraci.id,firsatAraci.aracSeoUrl]">
+
+            <img [src]="(firsatAraci.aracResimleri|resimSec).url"
+                class="card-img-top img-thumbnail embed-responsive-item"
+                alt="{{firsatAraci.aracAracVersionModelMarkaAd}}" />
+
+        </div>
+
+        <!-- Eğer araç satılmışsa bu gelecek -->
+        <div *ngIf="firsatAraci.ihaleDurum === 1 || firsatAraci.ihaleDurum===2"
+            [ngClass]="firsatAraci.ihaleDurum === 1 ? 'satildi' : firsatAraci.ihaleDurum === 2 ? 'satilmadi':''"
+            class="satilditxt position-absolute badge white-text rotate-l-37d5 text-center border-0">
+            SATILDI
+        </div>
+
+        <div [ngClass]="eskiArac ? 'orange-background' : 'green-background'"
+            class="position-absolute badge white-text rotate-l-37d5 text-center border-0">
+            {{firsatAraci.aracYili}}
+        </div>
+    </div>
+    <div class="col-lg-5 col-12 px-lg-0 pt-auto pb-auto pl-lg-4">
+        <div class="card-body pl-lg-4 px-4">
+            <label class="firsataracitag heartbeat">FIRSAT ARACI</label>
+            <span class="firsatbilgi" [innerHTML]="firsatAraci.aracAciklama"></span>
+            <a
+                [routerLink]="ihaleAktif  ? ['/ihale',ihaleAktif.id,'arac-detay',firsatAraci.id,firsatAraci.aracSeoUrl] : ['ihale',enYakinIhale.id,'arac-detay', firsatAraci.id,firsatAraci.aracSeoUrl]">
+                <h3 class="card-title m-0 mt-3 font-weight-bold">{{firsatAraci.aracAracVersionModelMarkaAd | uppercase}}
+                    {{firsatAraci.aracAracVersionModelAd | uppercase}}</h3>
+                <figcaption class="figure-caption">
+                    {{firsatAraci.aracAracVersionAd}}
+                </figcaption>
+            </a>
+            <div class="d-flex w-100 mt-3">
+                <svg-icon src="/assets/special/dashboard.svg"></svg-icon>
+                {{firsatAraci.aracSonKm|numberTrFormat}} Km
+            </div>
+            <div class="d-flex w-100 mt-2 align">
+
+                <svg-icon src="/assets/special/gasoline-pump.svg"></svg-icon>
+                {{firsatAraci.yakitTipiAd}}
+            </div>
+            <div class="d-flex w-100 mt-2">
+                <svg-icon src="/assets/special/gear-shift.svg"></svg-icon>
+                {{firsatAraci.vitesTipiAd}}
+            </div>
+            <app-favori-ekle class="star position-absolute fixed-right mt-2 text-right mr-4" [iconSize]="'xl'"
+                [ihaleAracId]="firsatAraci.id">
+
+            </app-favori-ekle>
+            <div class="orange-text font-display-ultralg font-weight-bold">
+                {{firsatAraci.baslangicFiyati|numberTrFormat}}
+                <sup>
+                    <span class="orange-text">
+                        ₺
+                    </span>
+                    <span class="gray-text font-display-exsm"> / KDV dahil</span>
+                </sup>
+            </div>
+            <div class="row no-gutters font-smaller font-display-exsm position-relative text-center">
+                Katılım Bedeli: &nbsp; <b>{{firsatAraci.aracDepozit|numberTrFormat}} ₺</b>
+            </div>
+            <div class="row no-gutters font-smaller font-display-exsm pt-2 position-relative text-center">
+                <div class="col-sm-12 p-0 text-left mb-12 ml-lg-12" *ngIf="!user;else userContent">
+                    İhaleye katılabilmek için <a [routerLink]="" class="orange-text" role="button" (click)="login()">
+                        lütfen giriş
+                        yapınız.</a>
+                </div>
+                <ng-template #userContent>
+                    <a role="button" *ngIf="uyeBilgi?.uyelikTipi === 0" style="cursor: pointer;"
+                        class="btn pr-0 pl-0 mr-0 ml-0 dropdown-toggle position-relative" (click)="bakiyeYukle()">
+                        Bakiye:
+                        <span class="orange-text"><b>{{uyeBilgi?.bakiye|numberTrFormat}} ₺ </b></span>
+
+                        <span class="font-weight-bold pl-1">+</span>
+                    </a>
+                    <span *ngIf="uyeBilgi?.uyelikTipi === 1"
+                        class="btn ml-2 pl-1 pr-0 mr-0 dropdown-toggle position-relative orange-text">
+                        <svg-icon src="/assets/special/elit-uye.svg" [svgStyle]="{fill:'#ffa178'}"></svg-icon>
+                        Elit Üye
+                    </span>
+                </ng-template>
+            </div>
+            <div _ngcontent-srm-c9="" *ngIf="!ihaleAktif && !aktifArac" class="btn btn-aracdetay btn-block mt-3 mr-4"><a
+                    [routerLink]="ihaleAktif  ? ['/ihale',ihaleAktif.id,'arac-detay',firsatAraci.id,firsatAraci.aracSeoUrl] : ['ihale',enYakinIhale.id,'arac-detay', firsatAraci.id,firsatAraci.aracSeoUrl]">Aracı
+                    Detaylı
+                    İncele</a></div>
+
+
+            <button type="button" *ngIf="ihaleAktif && aktifArac"
+                [routerLink]="['/ihale',ihaleAktif.id,'arac-detay',aktifArac.id,aktifArac.aracSeoUrl]"
+                class="btn btn-block orange-background rounded-0 white-text col-lg-9 p-3 mt-4">
+                AÇIK ARTTIRMAYA KATIL
+                <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    class="icon-xs mt-n1 ml-2">
+                    <path fill="#fff"
+                        d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

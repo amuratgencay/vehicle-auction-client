@@ -1,0 +1,129 @@
+$color-amec-orange-one: #e84c0f;
+$color-amec-green-one: #28a745;
+$color-amec-extra-light-grey: #f9f9f9;
+$color-amec-light-gray-one: #eee;
+$color-amec-light-to-mid-gray-one:#8a8a89;
+$color-amec-light-to-mid-gray-two:#ddd;
+$color-amec-light-to-mid-gray-three:#f2f2f2;
+$color-amec-mid-gray-one: #f4f4f4;
+$color-amec-mid-to-dark-gray-one: #2f2e2f;
+$color-ultra-dark:#343434;
+$color-dark-filter-blue:#13353e;
+$color-dark-filter-blue-t-21:hsla(193, 53%, 16%, 0.68);
+
+.orange-background {
+    background-color: $color-amec-orange-one !important;
+    color: white!important;
+
+    &:hover {
+        color: white!important;
+    }
+}
+
+.green-background {
+    background-color: $color-amec-green-one !important;
+    color: white!important;
+
+    &:hover {
+        color: white!important;
+    }
+}
+
+.orange-text {
+    color: $color-amec-orange-one;
+}
+
+.red-text {
+    color: red;
+}
+.green-text {
+    color: green;
+}
+.blue-text {
+    color: blue;
+}
+.yellow-text {
+    color:yellow;
+}
+
+.boyali {color:#d60000;}
+
+.degisen {color:#262f98;}
+
+.gray-very-light-background {
+    background-color: $color-amec-extra-light-grey;
+}
+
+.gray-light-background {
+    background-color: $color-amec-mid-gray-one;
+}
+
+.firsatAraci {
+    background-color: $color-amec-orange-one;
+
+    & *,
+    .gray-text,
+    .dark-gray-text
+    {color:#fff !important;}
+
+    & .border-top {
+        border-color: #e08d6c !important; 
+    }
+
+    & .icon-lg .icon-lg .bg {
+        fill: #fff !important;
+    }
+
+    &.fixed-bottom {
+        background-color: #b7481c;
+
+       & .border-left.border-right {
+        border-color: #e08d6c !important;
+       }
+    }
+}
+
+.gray-mid-background {
+    background-color: $color-amec-mid-gray-one;
+}
+
+.gray-mid-three-background {
+    background-color: color-amec-light-to-mid-gray-three;
+}
+
+.gray-ultra-dark-background {
+    background-color: $color-ultra-dark;
+    color: white;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.white-background {
+    background-color: white;
+}
+
+.white-text {
+    color: white;
+}
+
+.ultra-light-gray-text {
+    color: $color-amec-extra-light-grey;
+}
+
+.gray-text {
+    color: $color-amec-light-to-mid-gray-one;
+}
+
+.dark-gray-text {
+    color: $color-amec-mid-to-dark-gray-one!important;
+}
+
+.ultra-dark-gray-text {
+    color: $color-ultra-dark;
+}
+
+.filter-dark-blue {
+    background-color: $color-dark-filter-blue-t-21;
+}

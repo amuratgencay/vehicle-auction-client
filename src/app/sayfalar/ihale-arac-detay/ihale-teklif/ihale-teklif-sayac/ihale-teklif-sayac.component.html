@@ -1,0 +1,12 @@
+<div class="col-sm-4 col-4" *ngIf="teklifGeriSayim">
+    <zlib-count-down-timer [showBackground]="true" [showImage]="true" [imageSrc]="'/assets/img/clock/clock_frame_n.png'"
+        [imageHeight]="112" [imageWidth]="112" [startFromZero]="false" [titleFontSize]="teklifYazisiGoster ? 18 : 35"
+        [titleFontWeight]="700" [clockwise]="true" [lazy]="false" [percent]="zamanYuzde" [outerStrokeLinecap]="'butt'"
+        [title]="teklifYazisiGoster ? 'TEKLİF' : teklifGeriSayim.k.toFixed()" [radius]="46" [showSubtitle]="false"
+        [showUnits]="false" [maxPercent]="100"
+        [outerStrokeColor]="teklifYazisiGoster ? '#0EBF00' : getColor(teklifGeriSayim.k.toFixed())"
+        [outerStrokeWidth]="12" [space]="teklifYazisiGoster ? 4 : 4" [innerStrokeWidth]="teklifYazisiGoster ? 35 : 2"
+        [innerStrokeColor]="teklifYazisiGoster ? '#0EBF00' : getColor(teklifGeriSayim.k.toFixed())"
+        [animationDuration]="400" [animation]="true">
+    </zlib-count-down-timer>
+</div>

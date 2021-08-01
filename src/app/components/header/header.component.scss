@@ -1,0 +1,30 @@
+.ayrac {color: #c1c1c1;}
+.orange-text
+ {
+     &, &:hover {
+    color: #e84c0f;
+     }
+}
+.dropdown-item.active, .dropdown-item:active {background: #e84c0f !important;}
+.dropdown-item:hover {color:#fff; background: #e84c0f ;}
+
+.hover-text {
+
+    & img.angle-down { 
+        background:url('/assets/img/fontawesome/angle-down-solid.svg') no-repeat;
+    }
+
+    & > div.btn:hover, &.show > div.btn {
+        color: #e84c0f;
+
+        & img.angle-down { 
+            background:url('/assets/img/fontawesome/angle-down-fill.svg') no-repeat;
+        }
+    
+    } 
+}
+.cikis {
+    width: 16px;
+    height: 16px;
+    display: inline-table;
+}

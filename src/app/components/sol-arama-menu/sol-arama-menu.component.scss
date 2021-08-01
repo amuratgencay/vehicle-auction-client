@@ -1,0 +1,15 @@
+@import '~bootstrap/scss/bootstrap';
+@import "../../../saas/consts/colors";
+@import '../../../saas/components/card';
+@import '../../../saas/components/leftSideMenu';
+a {
+    color:#2f2e2f;
+}
+a:hover {
+    color: #e84c0f;
+    text-decoration: none;
+    -webkit-appearance: none;
+}
+.btn {
+    font-weight: 500;
+}

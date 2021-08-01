@@ -1,0 +1,64 @@
+<div class="modal-header text-center d-block position-relative">
+    <h3 class="modal-title w-100 pt-3 font-display-ultralg mt-4" id="exampleModalLabel">Şifre Değiştir
+    </h3>
+    <button type="button" (click)="activeModal.dismiss('Cross click')" aria-label="Close"
+        class="close position-absolute fixed-top fixed-right mx-1">
+        <span aria-hidden="true" class="font-display-ultralg">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="form">
+                <div class="form-group">
+                    <input type="password" class="form-control" id="newPassword" ngbAutofocus
+                        formControlName="eskiSifre" placeholder="Mevcut Şifre"
+                        [ngClass]="{ 'is-invalid': this.form.controls['eskiSifre'] &&this.form.controls['eskiSifre'].errors }">
+                    <div *ngIf="this.form.controls['eskiSifre'] && this.form.controls['eskiSifre'].touched && this.form.controls['eskiSifre'].errors"
+                        class="invalid-feedback">
+                        <small *ngIf="this.form.controls['eskiSifre']?.errors?.required">Mevcut Şifre
+                            zorunludur</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="newPassword" formControlName="yeniSifre"
+                        placeholder="Yeni Şifre"
+                        [ngClass]="{ 'is-invalid': this.form.controls['yeniSifre'] &&this.form.controls['yeniSifre'].errors }">
+                    <div *ngIf="this.form.controls['yeniSifre'] && this.form.controls['yeniSifre'].touched && this.form.controls['yeniSifre'].errors"
+                        class="invalid-feedback">
+                        <small *ngIf="this.form.controls['yeniSifre']?.errors?.required">Yeni Şifre
+                            zorunludur</small>
+                        <small *ngIf="this.form.controls['yeniSifre']?.errors?.mustMatch">Şifreler aynı
+                            değil</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="newPassword" formControlName="sifreTekrar"
+                        placeholder="Şifre Tekrar"
+                        [ngClass]="{ 'is-invalid': this.form.controls['sifreTekrar'] &&this.form.controls['sifreTekrar'].errors }">
+                    <div *ngIf="this.form.controls['sifreTekrar'] && this.form.controls['sifreTekrar'].touched && this.form.controls['sifreTekrar'].errors"
+                        class="invalid-feedback">
+                        <small *ngIf="this.form.controls['sifreTekrar']?.errors?.required">Şifre Tekrarı
+                            zorunludur</small>
+                        <small *ngIf="this.form.controls['sifreTekrar']?.errors?.mustMatch">Şifreler aynı
+                            değil</small>
+                    </div>
+                </div>
+                <button type="button" (click)="kaydet()" [disabled]="form.invalid"
+                    class="btn rounded-0 orange-background white-text w-100">KAYDET
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div *ngIf="errorMesaj" class="alert alert-danger">
+                {{errorMesaj}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer justify-content-center">
+
+</div>

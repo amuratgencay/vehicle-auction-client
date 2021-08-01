@@ -1,0 +1,113 @@
+<div class="container position-relative">
+    <svg-icon src="/assets/img/static/ihale-detay-ghost.svg" class="pt-2" [@fadeIn]="!veriGeldi" *ngIf="!veriGeldi">
+    </svg-icon>
+    <div class="row card-big-vehicle mt-4 mb-4 px-0">
+        <div class="col-12 pb-2 px-0 no-gutters mob-p" *ngIf="sayfadakiArac">
+            <h2 class="card-title m-0 mt-1 font-weight-bold">{{sayfadakiArac.aracAracVersionModelMarkaAd|uppercase}}
+                {{sayfadakiArac.aracAracVersionModelAd|uppercase}}</h2>
+            <figcaption class="figure-caption pt-2">
+                {{sayfadakiArac.aracAracVersionAd}}
+            </figcaption>
+            <div class="col-lg-6 col-sm-12 px-0 float-left pt-2">
+                <figcaption class="figure-caption">
+                    {{sayfadakiArac.aracYili}} / {{sayfadakiArac.aracSonKm|numberTrFormat}} <sup>KM</sup>
+                </figcaption>
+            </div>
+            <app-ihale-sayfalama-bilgisi [takipSayisi]="takipSayi" [ihaleId]="ihaleId"
+                [sayfadakiAracId]="sayfadakiArac.id">
+            </app-ihale-sayfalama-bilgisi>
+        </div>
+        <div class="col-lg-6 col-sm-12 px-0 d-flex flex-column align-self-stretch imgSlide justify-content-center overflow-h"
+            *ngIf="sayfadakiArac">
+            <div style="font-size:15px;" [ngClass]="eskiArac ? 'orange-background' : 'green-background'"
+                class="position-absolute  white-text text-center rotate-l-37d5-3 border-0 font-display-md font-weight-bold">
+                {{sayfadakiArac.aracYili}}
+            </div>
+            <ngx-gallery [options]="galleryOptions" *ngIf="sayfadakiArac.aracResimleri"
+                [images]="sayfadakiArac.aracResimleri|aracResimToGallery"></ngx-gallery>
+
+        </div>
+        <div class="col-lg-6 col-sm-12 px-0 pl-lg-3 pt-auto pb-auto" *ngIf="ihale && ihaleAracId">
+            <app-ihale-teklif *ngIf="!hemenAlaraciMi" [ihaleArac]="sayfadakiArac"
+                (benzerAraclaraGitDegisti)="benzerAraclaraGit($event)" [ihaleAracId]="ihaleAracId" [ihale]="ihale">
+            </app-ihale-teklif>
+            <app-ihale-arac-hemen-al *ngIf="hemenAlaraciMi" [kazananUyeId]="this.sayfadakiArac.kazananUyeId"
+                [ihaleArac]="sayfadakiArac">
+            </app-ihale-arac-hemen-al>
+        </div>
+    </div>
+    <!-- disabled eklenince tab direkt olarak 3. tab den başlayacak ama satın almış kişiler hariç -->
+    <ul class="row nav nav-tabs nav-fill border-0 pb-2 pt-3" role="tablist" *ngIf="sayfadakiArac">
+        <li class="nav-item pr-lg-2 col-sm-12 col-md-auto mb-md-4">
+            <a class="nav-link border-0 round-circle p-3 gray-mid-background" (click)="tab = 'ekspertiz-raporu'"  
+                queryParamsHandling="merge" [ngClass]="tab === 'ekspertiz-raporu' ? 'active' : ''" role="tab"
+                aria-controls="ekspertiz_raporu" aria-selected="true"> <!-- disabled classını aracı satın almamış kişilere ama bitmiş ihale araçlarında aktif etmemiz gerekiyor, aracı satın alan kişide disabled olmaycak-->
+                EKSPERTİZ RAPORU
+                <div class="triangle triangle-orange rotate45deg m-auto"></div>
+            </a>
+        </li>
+        <li class="nav-item pr-lg-2 col-sm-12 col-md-auto mb-md-4">
+            <a class="nav-link border-0 round-circle p-3 gray-mid-background" (click)="tab = 'ekspertiz-yorumu'"
+                [ngClass]="tab === 'ekspertiz-yorumu' ? 'active' : ''" [routerLink]="" queryParamsHandling="merge"
+                role="tab" aria-controls="ekspertiz_yorumu" aria-selected="false"> <!-- disabled classını aracı satın almamış kişilere ama bitmiş ihale araçlarında aktif etmemiz gerekiyor, aracı satın alan kişide disabled olmaycak-->
+                EKSPERTİZ YORUMU
+                <div class="triangle triangle-orange rotate45deg m-auto"></div>
+            </a>
+        </li>
+        <li class="nav-item pr-lg-2 col-sm-12 col-md-auto mb-md-4">
+            <a class="nav-link border-0 round-circle p-3 gray-mid-background" (click)="tab = 'arac-detaylari'"
+                [ngClass]="tab === 'arac-detaylari' ? 'active' : ''" [routerLink]="" queryParamsHandling="merge"
+                role="tab" aria-controls="arac_detaylari" aria-selected="false">
+                ARAÇ DETAYLARI
+                <div class="triangle triangle-orange rotate45deg m-auto"></div>
+            </a>
+        </li>
+        <li class="nav-item pr-lg-2 col-sm-12 col-md-auto mb-md-4">
+            <a class="nav-link border-0 round-circle p-3 gray-mid-background" (click)="tab = 'donanim-ozellikleri'"
+                [ngClass]="tab === 'donanim-ozellikleri' ? 'active' : ''" [routerLink]="" queryParamsHandling="merge"
+                role="tab" aria-controls="donanim_ozellikleri" aria-selected="false">
+                DONANIM ÖZELLİKLERİ
+                <div class="triangle triangle-orange rotate45deg m-auto"></div>
+            </a>
+        </li>
+        <li class="nav-item col-sm-12 col-md-auto mb-md-4">
+            <a class="nav-link border-0 round-circle p-3 gray-mid-background"
+                (click)="tab = 'benzer-araclar'; benzerAracTipi='ihaledeki'"
+                [ngClass]="tab === 'benzer-araclar' ? 'active' : ''" [routerLink]="" queryParamsHandling="merge"
+                role="tab" aria-controls="benzer_araclar" aria-selected="false">
+                BENZER ARAÇLAR
+                <div class="triangle triangle-orange rotate45deg m-auto"></div>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content row border p-0 pt-4 min-h-460px" *ngIf="sayfadakiArac">
+        <ng-container [ngSwitch]="tab">
+            <app-arac-ekspertiz-gecmisi class="col-12 fade active show px-3" *ngSwitchCase="'ekspertiz-raporu'"
+                id="ekspertiz_raporu" role="tabpanel" aria-labelledby="ekspertiz_raporu-tab"
+                [aracId]="sayfadakiArac.aracId">
+            </app-arac-ekspertiz-gecmisi>
+            <app-arac-mevcut-durum class="col-12 fade active show px-3 row" *ngSwitchCase="'ekspertiz-yorumu'"
+                role="tabpanel" aria-labelledby="ekspertiz_yorumu-tab" [aracId]="sayfadakiArac.aracId">
+            </app-arac-mevcut-durum>
+            <app-arac-detaylari class="col-12 fade active show px-3 text16" *ngSwitchCase="'arac-detaylari'" role="tabpanel"
+                aria-labelledby="arac_detaylari-tab" [aracId]="sayfadakiArac.aracId">
+            </app-arac-detaylari>
+            <app-arac-donanimlari class="col-12 fade active show px-3" *ngSwitchCase="'donanim-ozellikleri'"
+                role="tabpanel" aria-labelledby="donanim_ozellikleri-tab" [aracId]="sayfadakiArac.aracId">
+            </app-arac-donanimlari>
+            <app-ihale-benzer-araclar class="fade active show row px-3 d-flex" *ngSwitchCase="'benzer-araclar'"
+                role="tabpanel" aria-labelledby="benzer_araclar-tab" [secili]="benzerAracTipi"
+                [aracId]="sayfadakiArac.aracId" [ihaleId]="ihaleId">
+            </app-ihale-benzer-araclar>
+        </ng-container>
+    </div>
+    <div class="row gray-mid-background font-display-exsm p-3 dark-gray-text mt-3">
+        <b class="mr-2 dcontent">Not:</b>
+        101 nokta Expertizi aracın hiçbir parçası sökülmeden yapılmaktadır. Araçtaki hasarların tespiti için kapak,
+        döşeme
+        ve benzeri parçaların sökülmesi ekspertiz kapsamında değildir. 5 cm altındaki yüzeysel çizikler ve taş izleri
+        raporunda yer almaz.
+    </div>
+    <app-siradaki-araclar *ngIf="sayfadakiArac" [aracId]="sayfadakiArac.aracId" [ihaleId]="ihaleId">
+    </app-siradaki-araclar>
+</div>

@@ -1,0 +1,21 @@
+<span style="cursor: pointer;" (click)="sessizeAl()" class="col-sm-1 col-1 mb-3 mr-4">
+    <i class="fa fa-volume-up fa-2x" *ngIf="!sessiz"></i>
+    <i class="fa fa-volume-off fa-2x" *ngIf="sessiz"></i>
+</span>
+<audio controls [hidden]="true" #teklifSesRef>
+    <source src="/assets/sounds/teklif.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+
+<audio controls [hidden]="true" #sayacSesRef>
+    <source src="/assets/sounds/Sayac.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<audio controls [hidden]="true" #baslangicSesRef>
+    <source src="/assets/sounds/baslangic.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<audio controls [hidden]="true" #enYuksekTeklifSesRef>
+    <source src="/assets/sounds/enYuksekTeklif.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>

@@ -1,0 +1,61 @@
+<div class="card-carousel">
+    <div class="embed-responsive embed-responsive-4by3 overflow-hidden">
+        <div class="satilditxt"  *ngIf="arac.ihaleDurum === 1 || arac.ihaleDurum===2"
+        [ngClass]="arac.ihaleDurum === 1 ? 'satildi' : arac.ihaleDurum === 2 ? 'satilmadi':''">SATILDI</div>
+        <a [routerLink]="['/ihale',arac.ihaleBilgisiId,'arac-detay', arac.id, arac.aracSeoUrl]" target="_top">           
+            <img [src]="(arac.aracResimleri|resimSec).mediumUrl || (arac.aracResimleri|resimSec).url" class="card-img-top img-thumbnail embed-responsive-item"
+                style="padding: 0px" [alt]="arac.aracAracAdi" />
+            <div style="font-size:15px;" [ngClass]="eskiArac ? 'orange-background' : 'green-background'"
+                class="position-absolute  white-text text-center rotate-l-37d5 border-0 font-display-md font-weight-bold">
+                {{arac.aracYili}}
+            </div>
+            <div class="position-absolute p-1 ml-1 fixed-left fixed-top white-text"
+                style="text-shadow: 1px 1px 1px #000;" *ngIf="arac.ihaleDurum === 0 || arac.ihaleDurum === 4">
+                {{arac.ihaleSirasi+1}}</div>
+        </a>
+    </div>
+    <div class="card-body p-2 gray-text" [ngClass]="arac.firsatAraciMi ? 'firsatAraci' : ''">
+        <a [routerLink]="['/ihale',arac.ihaleBilgisiId,'arac-detay', arac.id, arac.aracSeoUrl]">
+            <h3 class="card-title m-0 dark-gray-text" style="font-size:0.90rem;">
+                {{arac.aracAracVersionModelMarkaAd | uppercase}}
+                {{arac.aracAracVersionModelAd | uppercase}}</h3>
+        </a>
+        <figcaption class="figure-caption">
+            <a [routerLink]="['/ihale',arac.ihaleBilgisiId,'arac-detay', arac.id, arac.aracSeoUrl]" target="_top">
+                {{arac.aracAracVersionAd}}
+            </a>
+        </figcaption>
+        <div class="gray-text p-0 m-0 w-100">
+            {{arac.aracSonKm|numberTrFormat}}<sup>KM</sup>
+        </div>
+        <div *ngIf="arac.ihaleBilgisiIhaleTipi === 2" class="border-top  p-0 m-0 w-100">
+            Hemen Al Fiyatı
+        </div>
+        <div *ngIf="arac.ihaleBilgisiIhaleTipi !== 2" class="border-top  p-0 m-0 w-100">
+            Açılış Fiyatı
+        </div>
+        <div class="orange-text font-display-lg font-weight-bold">
+            {{arac.baslangicFiyati|numberTrFormat}}
+            <sup>
+                <span class="orange-text">
+                    ₺
+                </span>
+                <span class="gray-text font-display-exsm"> / KDV dahil</span>
+            </sup>
+            <app-favori-ekle class="star float-right text-right mt-n3 pr-1" [iconSize]="'lg'" [ihaleAracId]="arac.id">
+            </app-favori-ekle>
+        </div>
+    </div>
+    <div class="row p-0 m-0 gray-text position-relative fixed-bottom"
+        [ngClass]="arac.firsatAraciMi ? 'firsatAraci' : 'gray-light-background'">
+        <div class=" col-4 text-center p-1 font-display-exsm" style="font-size: 10px;">
+            {{arac.aracYili}}
+        </div>
+        <div class="col-4 text-center p-1 border-left border-right font-display-exsm" style="font-size: 10px;">
+            {{arac.vitesTipiAd}}
+        </div>
+        <div class="col-4 text-center p-1 font-display-exsm" style="font-size: 10px;">
+            {{arac.yakitTipiAd}}
+        </div>
+    </div>
+</div>

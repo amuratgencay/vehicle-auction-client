@@ -1,0 +1,43 @@
+<div class="modal-header text-center d-block position-relative">
+  <a href="/" target="_blank" class="w-100 m-auto d-block">
+    <img rel="Avec Logo" class="avec-logo-sm " src="./assets/img/svg-logos/avec_ikinciel_logo.svg" />
+  </a>
+  <h3 class="modal-title w-100 pt-3 font-display-ultralg mt-4" id="exampleModalLabel">Üye
+    Girişi</h3>
+  <button type="button" (click)="activeModal.dismiss('Cross click')" aria-label="Close"
+    class="close position-absolute fixed-top fixed-right mx-1">
+    <span aria-hidden="true" class="font-display-ultralg">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <input type="email" class="form-control text-center" id="email" formControlName="eposta"
+            placeholder="E-posta adresiniz">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control text-center" id="password" formControlName="sifre"
+            placeholder="Şifre">
+        </div>
+        <button type="button" (click)="login()" ngbAutofocus
+          class="btn rounded-0 orange-background white-text w-100">GİRİŞ
+          YAP</button>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <div *ngIf="errorMesaj" class="alert alert-danger">
+        {{errorMesaj}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer justify-content-center">
+  <a [routerLink]="['/sifre-talep']" class="font-display-exsm grey-text text-underlined text-center">Şifremi
+    Unuttum
+  </a>
+</div>

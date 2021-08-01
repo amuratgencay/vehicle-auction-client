@@ -1,0 +1,61 @@
+<div class="container position-relative">
+    <div class="row d-flex-row px-0 pt-0 pt-lg-5 pb-3">
+        <div class="col-sm-12 col-lg-2 card left-side-menu list-group list-group-flush p-0 transparent font-display-sm">
+            <div class="pos-f-t dropdown-md position-relative">
+                <nav class="navbar navbar-expand-lg">
+                    <button class="navbar-toggler btn-block text-left p-4 position-relative border" type="button"
+                        data-toggle="collapse" data-target="#accountToggler" aria-controls="accountToggler"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        BAKİYE YÜKLE
+                        <span class="position-absolute fixed-right mt-n2 mr-2">
+                            <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                class="icon-xs mt-1 ml-1">
+                                <path fill="gray"
+                                    d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
+                                    class=""></path>
+                            </svg>
+                        </span>
+                    </button>
+                </nav>
+                <div class="collapse menu" id="accountToggler">
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" routerLinkActive="active"
+                        [routerLink]="['/hesabim','uyelik-bilgilerim']" role="button">
+                        Üyelik Bilgilerim
+                    </a>
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" routerLinkActive="active"
+                        [routerLink]="['/hesabim','katildigim-ihaleler']" role="button">
+                        Katıldığım İhaleler
+                    </a>
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" routerLinkActive="active"
+                        [routerLink]="['/hesabim','kazandigim-ihaleler']" role="button">
+                        Kazandığım İhaleler
+                    </a>
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" routerLinkActive="active"
+                        [routerLink]="['/hesabim','hemen-aldiklarim']" role="button">
+                        Hemen Aldıklarım
+                    </a>
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" [routerLink]=""
+                        *ngIf="uyeBilgi && uyeBilgi.uyelikTipi !== 1" (click)="bakiyeYukle()" role="button">
+                        Bakiye Yükle
+                    </a>
+                    <a class="btn-block text-left px-3 pt-3 pb-4 border-bottom" routerLinkActive="active"
+                        [routerLink]="['/hesabim','favori-ilanlarim']" role="button">
+                        Favoriler
+                    </a>
+                    <a class="btn-block text-left pt-3 pr-0 pb-3 text-center"
+                        *ngIf="uyeBilgi && uyeBilgi.uyelikTipi !== 1"
+                        routerLinkActive="active orange-background white-text" #elit="routerLinkActive"
+                        [routerLink]="['/hesabim','elit-uyelik-gecis']" role="button">
+                        <svg-icon src="/assets/special/elit-uye.svg"
+                            [svgStyle]="elit.isActive ? {fill:beyaz} : {fill:turuncu}" class="svg-icon">
+                        </svg-icon>
+                        Elit Üyelik Geçiş
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-10 col-md pl-4 pr-0 pt-5 pt-lg-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

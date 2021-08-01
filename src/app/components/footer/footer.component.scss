@@ -1,0 +1,28 @@
+@import '~bootstrap/scss/bootstrap';
+@import '../../../saas/consts/colors';
+footer {
+    & li {
+        margin: 1em 0;
+
+        & a {
+            color: $color-amec-mid-to-dark-gray-one;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding: 0;
+    }
+
+}
+.flex-flow-wrap {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start !important;
+    display: flex;
+  }
+
+.paragraf {
+    & p {
+        margin-bottom: 0 !important;
+    }
+}

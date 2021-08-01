@@ -1,0 +1,84 @@
+<h4 class="pb-5 font-weight-medium">ÜYELİK BİLGİLERİM</h4>
+<form [formGroup]="uyeKayitForm" novalidate="">
+
+    <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Adınız</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" formControlName="ad"
+                [ngClass]="{ 'is-invalid': f['ad'] && f['ad'].errors }">
+            <div *ngIf="f['ad'] && f['ad'].touched && f['ad'].errors" class="invalid-feedback">
+                <small *ngIf="f['ad'].errors.required">Ad zorunludur</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="surname" class="col-sm-3 col-form-label">Soyadınız</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="surname" formControlName="soyad"
+                [ngClass]="{ 'is-invalid': f['soyad'] && f['soyad'].errors }">
+            <div *ngIf="f['soyad'] && f['soyad'].touched && f['soyad'].errors" class="invalid-feedback">
+                <small *ngIf="f['soyad'].errors.required">Soyad zorunludur</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">E-posta Adresiniz</label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" id="email" formControlName="eposta"
+                [ngClass]="{ 'is-invalid': f['eposta'] && f['eposta'].errors }">
+            <div *ngIf="f['eposta'] && f['eposta'].touched && f['eposta'].errors" class="invalid-feedback">
+                <small *ngIf="f['eposta'].errors.required">Eposta zorunludur</small>
+                <small *ngIf="f['eposta'].errors.email">Eposta geçerli değil</small>
+                <small *ngIf="f['eposta'].errors.mustMatch">Epostalar aynı değil</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="phone" class="col-sm-3 col-form-label">Cep Telefonunuz</label>
+        <div class="col-sm-9">
+            <input type="tel" class="form-control" id="phone" formControlName="telefon"
+                [ngClass]="{ 'is-invalid': f['telefon'] &&f['telefon'].errors }">
+            <div *ngIf="f['telefon'] && f['telefon'].touched && f['telefon'].errors" class="invalid-feedback">
+                <small *ngIf="f['telefon'].errors.required">Cep Telefonu zorunludur</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="city" class="col-sm-3 col-form-label">Şehir</label>
+        <div class="col-sm-9">
+            <select class="form-control" id="sehir" formControlName="sehirId" aria-placeholder="Şehir"
+                [ngClass]="{ 'is-invalid': f['sehirId'] &&f['sehirId'].errors }">
+                <option *ngFor="let sehir of sehirler" [value]="sehir.id">{{sehir.ad}}</option>
+            </select>
+            <div *ngIf="f['sehirId'] && f['sehirId'].touched && f['sehirId'].errors" class="invalid-feedback">
+                <small *ngIf="f['sehirId'].errors.required">Şehir zorunludur</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="address" class="col-sm-3 col-form-label">Adres</label>
+        <div class="col-sm-9">
+            <input type="address" class="form-control" id="adres" formControlName="adres" placeholder="Adres">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="nationalIdentity" class="col-sm-3 col-form-label">T.C. Kimlik No</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="tckimlikno" formControlName="tcKimlikNo"
+                placeholder="TC Kimlik No" maxlength="11"
+                [ngClass]="{ 'is-invalid': f['tcKimlikNo'] &&f['tcKimlikNo'].errors }">
+            <div *ngIf="f['tcKimlikNo'] && f['tcKimlikNo'].touched && f['tcKimlikNo'].errors" class="invalid-feedback">
+                <small *ngIf="f['tcKimlikNo'].errors.required">TC Kimlik No zorunludur</small>
+            </div>
+        </div>
+    </div>
+    <div
+        class="row d-flex flex-column flex-md-row text-center font-weight-bold font-display-md pt-3 px-3">
+        <button type="button" (click)="sifreDegistir()" class="btn col gray-ultra-dark-background p-2 px-4 mr-0 mr-md-2">
+            ŞİFRE DEĞİŞTİR
+        </button>
+        <button type="button" (click)="guncelle()" class="btn col orange-background p-2 px-4 ml-0 ml-md-2 mt-3 mt-md-0">
+            GÜNCELLE
+        </button>
+    </div>
+</form>

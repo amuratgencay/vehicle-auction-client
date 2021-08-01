@@ -1,0 +1,12 @@
+<div class="container text-center max-width-700 nb-theme-default">
+    <div class="row d-flex-row px-0 pt-lg-4 pt-1 pb-3">
+        <div class="col-12">
+            <div class="alert alert-success" *ngIf="sonuc && sonuc.basarili">
+                Aktivasyon başarı ile gerçekleşti. Kullanıcı adı ve şifrenizi kullanarak sisteme giriş yapabilirsiniz.
+            </div>
+            <div class="alert alert-danger" *ngIf="sonuc && !sonuc.basarili">
+                {{sonuc.mesaj}}
+            </div>
+        </div>
+    </div>
+</div>

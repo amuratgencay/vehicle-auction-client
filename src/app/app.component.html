@@ -1,0 +1,15 @@
+<router-outlet></router-outlet>
+<div *ngIf="!cerezlerOnaylandiMi"
+    class="row fixed-bottom sticky orange-background p-2 justify-content-center align-items-center align-content-center kvkk">
+    <span class="col-8 font-display-exsm text-center p-2 pr-0 pl-5 m-2 m-lg-0">
+        Siteyi ziyaretiniz sırasında kişisel verileriniz teknik gerekliliklerin karşılanması amacıyla çerezler
+        aracılığıyla işlenmektedir. Daha fazla bilgi için avec2el.com <a
+            [routerLink]="['icerik','veri-gizliligi-kvkk']"><b>Sitesi Çerez Aydınlatma
+                Metni'ni</b></a>
+        okuyabilirsiniz.
+    </span>
+    <button (click)="cerezleriOnayla()"
+        class="btn col-2 col-lg-11d11 btn rounded-pill white-background p-2 mb-3 mb-lg-0 dark-gray-text">
+        KAPAT
+    </button>
+</div>

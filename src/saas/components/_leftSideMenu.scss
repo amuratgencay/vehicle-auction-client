@@ -1,0 +1,31 @@
+@import "../consts/colors";
+
+.left-side-menu {
+    .btn-block + .btn-block {
+        margin-top: 0;
+    }
+    & .active {
+        background-color: $color-amec-extra-light-grey;
+        color: $color-amec-orange-one;
+        font-weight: bold;
+    }
+
+    & .list-group-item {
+        height: 397px;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        @include media-breakpoint-down(md) {
+            height: auto;
+        }
+
+        & .card {
+            border: 0;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-top: 20px !important;
+    }
+}
